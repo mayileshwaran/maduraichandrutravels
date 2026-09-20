@@ -470,6 +470,9 @@
             <p>Rolling tea estates, misty hills and a toy-train ride through the Nilgiris.</p>
             <div class="ticket__meta">
               
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="ooty">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Ooty tour.">Book Now</a>
             </div>
           </div>
@@ -483,6 +486,9 @@
             <p>Emerald tea gardens and cool hill air in Kerala's most scenic hill station.</p>
             <div class="ticket__meta">
              
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="munnar">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Munnar tour.">Book Now</a>
             </div>
           </div>
@@ -496,6 +502,9 @@
             <p>Pine forests, a star-shaped lake and quiet viewpoints above the clouds.</p>
             <div class="ticket__meta">
              
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="kodaikanal">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Kodaikanal tour.">Book Now</a>
             </div>
           </div>
@@ -509,6 +518,9 @@
             <p>Where three seas meet — sunrise and sunset from the very same shore.</p>
             <div class="ticket__meta">
             
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="kanyakumari">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Kanyakumari trip.">Book Now</a>
             </div>
           </div>
@@ -522,6 +534,9 @@
             <p>A sacred island town with temple spires and a bridge that stretches over the sea.</p>
             <div class="ticket__meta">
              
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="rameshwaram">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Rameshwaram tour.">Book Now</a>
             </div>
           </div>
@@ -535,6 +550,9 @@
             <p>French-quarter streets, seaside promenades and a slower, colourful pace of life.</p>
             <div class="ticket__meta">
              
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="pondicherry">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Pondicherry tour.">Book Now</a>
             </div>
           </div>
@@ -548,6 +566,9 @@
             <p>Houseboats drifting through Kerala's palm-lined canals and calm backwaters.</p>
             <div class="ticket__meta">
               
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="alleppey">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Alleppey Backwaters tour.">Book Now</a>
             </div>
           </div>
@@ -561,6 +582,9 @@
             <p>Varkala is a popular coastal town in Kerala famous for its stunning red cliffs that overlook the Arabian Sea.</p>
             <div class="ticket__meta">
               
+                            <button type="button" class="btn btn--sm btn--outline js-destination" data-destination="varkala">
+                <i class="fa-solid fa-location-dot"></i> Explore Places
+              </button>
               <a href="#" class="btn btn--sm btn--primary js-book" data-msg="Hello madurai chandru travels, I'd like to book the Varkala tour.">Book Now</a>
             </div>
           </div>
@@ -803,6 +827,48 @@
   <i class="fa-brands fa-whatsapp"></i>
   <span class="floating-wa__ring" aria-hidden="true"></span>
 </a>
+
+
+<!-- ============ DESTINATION DETAILS MODAL ============ -->
+<div class="destination-modal" id="destinationModal" aria-hidden="true">
+  <div class="destination-modal__backdrop" id="destinationModalBackdrop"></div>
+  <div class="destination-modal__panel" role="dialog" aria-modal="true" aria-labelledby="destinationModalTitle">
+    <button type="button" class="destination-modal__close" id="destinationModalClose" aria-label="Close destination details">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="destination-modal__hero">
+      <img id="destinationModalHero" src="" alt="">
+      <div class="destination-modal__hero-overlay"></div>
+      <div class="destination-modal__hero-content">
+        <span class="destination-modal__eyebrow"><i class="fa-solid fa-map-pin"></i> Tour &amp; Destination</span>
+        <h2 id="destinationModalTitle">Destination</h2>
+        <p id="destinationModalDescription"></p>
+      </div>
+    </div>
+
+    <div class="destination-modal__content">
+      <div class="destination-modal__section-head">
+        <div>
+          <p class="eyebrow">Explore nearby</p>
+          <h3>Places you can visit</h3>
+        </div>
+        <span class="destination-modal__count" id="destinationModalCount"></span>
+      </div>
+
+      <div class="subplace-grid" id="subplaceGrid"></div>
+
+      <div class="destination-modal__actions">
+        <button type="button" class="btn btn--outline" id="destinationModalBack">
+          <i class="fa-solid fa-arrow-left"></i> Back to Destinations
+        </button>
+        <a href="#" class="btn btn--whatsapp js-destination-book" id="destinationModalBook">
+          <i class="fa-brands fa-whatsapp"></i> Book This Destination
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ BOOKING MODAL ============ -->
 <div class="booking-modal" id="bookingModal" aria-hidden="true">
