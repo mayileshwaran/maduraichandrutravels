@@ -979,6 +979,7 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: .6rem;
+  flex-wrap: wrap;
 }
 
 .ticket__tag {

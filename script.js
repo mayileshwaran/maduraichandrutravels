@@ -43,11 +43,11 @@ const DESTINATIONS = {
     description: "A refreshing Nilgiri escape with tea gardens, viewpoints, lakes and cool mountain air.",
     booking: "Hello madurai chandru travels, I'd like to book the Ooty tour.",
     places: [
-      ["Ooty Botanical Garden", "A beautiful garden filled with colourful flowers, ancient trees and peaceful walking paths.", "https://loremflickr.com/800/520/ooty,botanical,garden,india"],
-      ["Ooty Lake", "Enjoy the scenic lake, boating and relaxed views surrounded by the Nilgiri hills.", "https://loremflickr.com/800/520/ooty,lake,india"],
-      ["Doddabetta Peak", "The highest peak in the Nilgiris, offering panoramic mountain views.", "https://loremflickr.com/800/520/doddabetta,ooty,india"],
-      ["Ooty Rose Garden", "A hillside rose garden with thousands of roses arranged across terraced slopes.", "https://loremflickr.com/800/520/ooty,rose,garden,india"],
-      ["Coonoor", "A nearby hill town known for tea estates, viewpoints and the scenic Nilgiri landscape.", "https://loremflickr.com/800/520/coonoor,nilgiri,tea,india"]
+      ["Ooty Botanical Garden", "A beautiful garden filled with colourful flowers, ancient trees and peaceful walking paths.", "./img/subplaces/ooty_botanical_garden.jpg"],
+      ["Ooty Lake", "Enjoy the scenic lake, boating and relaxed views surrounded by the Nilgiri hills.", "./img/subplaces/ooty_lake.jpg"],
+      ["Doddabetta Peak", "The highest peak in the Nilgiris, offering panoramic mountain views.", "./img/subplaces/doddabetta_peak.jpg"],
+      ["Ooty Rose Garden", "A hillside rose garden with thousands of roses arranged across terraced slopes.", "./img/subplaces/ooty_rose_garden.jpg"],
+      ["Coonoor", "A nearby hill town known for tea estates, viewpoints and the scenic Nilgiri landscape.", "./img/subplaces/ooty_tea_estates.jpg"]
     ]
   },
   munnar: {
@@ -56,11 +56,11 @@ const DESTINATIONS = {
     description: "Kerala's misty hill country, surrounded by tea estates, waterfalls, forests and high viewpoints.",
     booking: "Hello madurai chandru travels, I'd like to book the Munnar tour.",
     places: [
-      ["Mattupetty Dam", "A scenic reservoir surrounded by green hills, ideal for relaxing and enjoying the mountain views.", "https://loremflickr.com/800/520/mattupetty,dam,munnar,india"],
-      ["Echo Point", "A popular lakeside viewpoint where the surrounding hills create a natural echo.", "https://loremflickr.com/800/520/echo,point,munnar,india"],
-      ["Top Station", "A high-altitude viewpoint with sweeping views of the Western Ghats.", "https://loremflickr.com/800/520/top,station,munnar,india"],
-      ["Tea Museum", "Discover the history and processing of Munnar's famous tea plantations.", "https://loremflickr.com/800/520/tea,museum,munnar,india"],
-      ["Eravikulam National Park", "A mountain landscape famous for Nilgiri tahr and seasonal Neelakurinji blooms.", "https://loremflickr.com/800/520/eravikulam,munnar,india"]
+      ["Mattupetty Dam", "A scenic reservoir surrounded by green hills, ideal for relaxing and enjoying the mountain views.", "./img/subplaces/munnar_mattupetty_dam.jpg"],
+      ["Echo Point", "A popular lakeside viewpoint where the surrounding hills create a natural echo.", "./img/subplaces/munnar_lake_view.jpg"],
+      ["Top Station", "A high-altitude viewpoint with sweeping views of the Western Ghats.", "./img/subplaces/munnar_mountain_view.jpg"],
+      ["Tea Museum", "Discover the history and processing of Munnar's famous tea plantations.", "./img/subplaces/munnar_tea_museum.jpg"],
+      ["Eravikulam National Park", "A mountain landscape famous for Nilgiri tahr and seasonal Neelakurinji blooms.", "./img/subplaces/munnar_eravikulam.jpg"]
     ]
   },
   kodaikanal: {
@@ -69,11 +69,11 @@ const DESTINATIONS = {
     description: "A peaceful hill station with pine forests, misty viewpoints, gardens and the iconic star-shaped lake.",
     booking: "Hello madurai chandru travels, I'd like to book the Kodaikanal tour.",
     places: [
-      ["Kodaikanal Lake", "The star-shaped lake is the centre of town, with boating and a scenic walking route.", "https://loremflickr.com/800/520/kodaikanal,lake,india"],
-      ["Coaker's Walk", "A charming hilltop walkway with beautiful valley and mountain views.", "https://loremflickr.com/800/520/coakers,walk,kodaikanal,india"],
-      ["Pillar Rocks", "Three giant rock pillars rising above the misty green valleys of Kodaikanal.", "https://loremflickr.com/800/520/pillar,rocks,kodaikanal,india"],
-      ["Bryant Park", "A colourful botanical garden near the lake, popular for flowers and peaceful walks.", "https://loremflickr.com/800/520/bryant,park,kodaikanal,india"],
-      ["Guna Caves", "A dramatic forested viewpoint area surrounded by tall cliffs and mist.", "https://loremflickr.com/800/520/guna,caves,kodaikanal,india"]
+      ["Kodaikanal Lake", "The star-shaped lake is the centre of town, with boating and a scenic walking route.", "./img/subplaces/kodaikanal_lake.jpg"],
+      ["Coaker's Walk", "A charming hilltop walkway with beautiful valley and mountain views.", "./img/subplaces/coakers_walk.jpg"],
+      ["Pillar Rocks", "Three giant rock pillars rising above the misty green valleys of Kodaikanal.", "./img/subplaces/pillar_rocks.jpg"],
+      ["Bryant Park", "A colourful botanical garden near the lake, popular for flowers and peaceful walks.", "./img/subplaces/bryant_park.jpg"],
+      ["Guna Caves", "A dramatic forested viewpoint area surrounded by tall cliffs and mist.", "./img/subplaces/guna_caves.jpg"]
     ]
   },
   kanyakumari: {
@@ -82,11 +82,11 @@ const DESTINATIONS = {
     description: "India's southern coastal landmark, famous for sea views, temples, memorials and spectacular sunrises.",
     booking: "Hello madurai chandru travels, I'd like to book the Kanyakumari trip.",
     places: [
-      ["Vivekananda Rock Memorial", "A famous offshore memorial reached by ferry, set against the meeting point of the seas.", "https://loremflickr.com/800/520/vivekananda,rock,kanyakumari,india"],
-      ["Thiruvalluvar Statue", "The monumental statue standing beside Vivekananda Rock in the sea.", "https://loremflickr.com/800/520/thiruvalluvar,statue,kanyakumari,india"],
-      ["Bhagavathi Amman Temple", "A historic temple dedicated to Goddess Bhagavathi at the southern tip.", "https://loremflickr.com/800/520/bhagavathi,amman,temple,kanyakumari,india"],
-      ["Gandhi Mandapam", "A memorial built in honour of Mahatma Gandhi with distinctive architecture and sea views.", "https://loremflickr.com/800/520/gandhi,mandapam,kanyakumari,india"],
-      ["Sunset Point", "A popular shoreline location for watching the changing colours of the evening sky.", "https://loremflickr.com/800/520/kanyakumari,sunset,sea,india"]
+      ["Vivekananda Rock Memorial", "A famous offshore memorial reached by ferry, set against the meeting point of the seas.", "./img/subplaces/vivekananda_rock_memorial.jpg"],
+      ["Thiruvalluvar Statue", "The monumental statue standing beside Vivekananda Rock in the sea.", "./img/subplaces/thiruvalluvar_statue.jpg"],
+      ["Bhagavathi Amman Temple", "A historic temple dedicated to Goddess Bhagavathi at the southern tip.", "./img/subplaces/bhagavathi_amman_temple.jpg"],
+      ["Gandhi Mandapam", "A memorial built in honour of Mahatma Gandhi with distinctive architecture and sea views.", "./img/subplaces/gandhi_mandapam.jpg"],
+      ["Sunset Point", "A popular shoreline location for watching the changing colours of the evening sky.", "./img/subplaces/kanyakumari_sunset_point.jpg"]
     ]
   },
   rameshwaram: {
@@ -95,11 +95,11 @@ const DESTINATIONS = {
     description: "A sacred island destination combining temple heritage, coastal scenery and memorable road-trip landmarks.",
     booking: "Hello madurai chandru travels, I'd like to book the Rameshwaram tour.",
     places: [
-      ["Ramanathaswamy Temple", "One of India's major pilgrimage temples, renowned for its long corridors and sacred heritage.", "https://loremflickr.com/800/520/ramanathaswamy,temple,rameshwaram,india"],
-      ["Pamban Bridge", "The iconic bridge connecting the island with mainland Tamil Nadu, surrounded by sea views.", "https://loremflickr.com/800/520/pamban,bridge,rameshwaram,india"],
-      ["Dhanushkodi", "A windswept coastal landscape at the eastern end of the island, known for its ruins and sea views.", "https://loremflickr.com/800/520/dhanushkodi,rameshwaram,india"],
-      ["APJ Abdul Kalam Memorial", "A memorial celebrating the life and legacy of India's former President and scientist.", "https://loremflickr.com/800/520/apj,abdul,kalam,memorial,rameshwaram,india"],
-      ["Ariyaman Beach", "A quieter coastal stretch where travellers can enjoy the sea and a relaxed atmosphere.", "https://loremflickr.com/800/520/ariyaman,beach,rameshwaram,india"]
+      ["Ramanathaswamy Temple", "One of India's major pilgrimage temples, renowned for its long corridors and sacred heritage.", "./img/subplaces/ramanathaswamy_temple.jpg"],
+      ["Pamban Bridge", "The iconic bridge connecting the island with mainland Tamil Nadu, surrounded by sea views.", "./img/subplaces/pamban_bridge.jpg"],
+      ["Dhanushkodi", "A windswept coastal landscape at the eastern end of the island, known for its ruins and sea views.", "./img/subplaces/dhanushkodi.jpg"],
+      ["APJ Abdul Kalam Memorial", "A memorial celebrating the life and legacy of India's former President and scientist.", "./img/subplaces/agni_theertham.jpg"],
+      ["Ariyaman Beach", "A quieter coastal stretch where travellers can enjoy the sea and a relaxed atmosphere.", "./img/subplaces/rameshwaram_beach.jpg"]
     ]
   },
   pondicherry: {
@@ -108,11 +108,11 @@ const DESTINATIONS = {
     description: "A colourful coastal getaway blending French-inspired streets, beaches, cafés and spiritual destinations.",
     booking: "Hello madurai chandru travels, I'd like to book the Pondicherry tour.",
     places: [
-      ["Promenade Beach", "A popular seafront stretch perfect for a relaxed walk beside the Bay of Bengal.", "https://loremflickr.com/800/520/promenade,beach,pondicherry,india"],
-      ["White Town", "Explore pastel streets, heritage buildings, cafés and French-inspired architecture.", "https://loremflickr.com/800/520/white,town,pondicherry,india"],
-      ["Sri Aurobindo Ashram", "A renowned spiritual centre in the heart of the heritage quarter.", "https://loremflickr.com/800/520/aurobindo,ashram,pondicherry,india"],
-      ["Paradise Beach", "A beautiful sandy beach reached by boat, known for its calm coastal setting.", "https://loremflickr.com/800/520/paradise,beach,pondicherry,india"],
-      ["Auroville", "A unique international township known for its peaceful atmosphere and the Matrimandir.", "https://loremflickr.com/800/520/auroville,pondicherry,india"]
+      ["Promenade Beach", "A popular seafront stretch perfect for a relaxed walk beside the Bay of Bengal.", "./img/subplaces/promenade_beach.jpg"],
+      ["White Town", "Explore pastel streets, heritage buildings, cafés and French-inspired architecture.", "./img/subplaces/french_quarter.jpg"],
+      ["Sri Aurobindo Ashram", "A renowned spiritual centre in the heart of the heritage quarter.", "./img/subplaces/sri_aurobindo_ashram.jpg"],
+      ["Paradise Beach", "A beautiful sandy beach reached by boat, known for its calm coastal setting.", "./img/subplaces/paradise_beach.jpg"],
+      ["Auroville", "A unique international township known for its peaceful atmosphere and the Matrimandir.", "./img/subplaces/auroville.jpg"]
     ]
   },
   alleppey: {
@@ -121,11 +121,11 @@ const DESTINATIONS = {
     description: "A relaxing Kerala backwater experience with houseboats, lagoons, beaches and palm-lined waterways.",
     booking: "Hello madurai chandru travels, I'd like to book the Alleppey Backwaters tour.",
     places: [
-      ["Alleppey Houseboat", "Cruise through Kerala's backwaters aboard a traditional-style houseboat.", "https://loremflickr.com/800/520/alleppey,houseboat,kerala,india"],
-      ["Alappuzha Beach", "A long sandy shoreline with a historic pier and relaxing sea views.", "https://loremflickr.com/800/520/alappuzha,beach,kerala,india"],
-      ["Vembanad Lake", "Kerala's large backwater lake, surrounded by villages, palms and waterways.", "https://loremflickr.com/800/520/vembanad,lake,kerala,india"],
-      ["Pathiramanal Island", "A small scenic island in Vembanad Lake, reached by boat.", "https://loremflickr.com/800/520/pathiramanal,island,kerala,india"],
-      ["Marari Beach", "A peaceful beach destination near Alleppey with a laid-back coastal atmosphere.", "https://loremflickr.com/800/520/marari,beach,kerala,india"]
+      ["Alleppey Houseboat", "Cruise through Kerala's backwaters aboard a traditional-style houseboat.", "./img/subplaces/alleppey_houseboat.jpg"],
+      ["Alappuzha Beach", "A long sandy shoreline with a historic pier and relaxing sea views.", "./img/subplaces/alleppey_beach.jpg"],
+      ["Vembanad Lake", "Kerala's large backwater lake, surrounded by villages, palms and waterways.", "./img/subplaces/vembanad_lake.jpg"],
+      ["Pathiramanal Island", "A small scenic island in Vembanad Lake, reached by boat.", "./img/subplaces/pathiramanal_island.jpg"],
+      ["Marari Beach", "A peaceful beach destination near Alleppey with a laid-back coastal atmosphere.", "./img/subplaces/kuttanad.jpg"]
     ]
   },
   varkala: {
@@ -134,11 +134,11 @@ const DESTINATIONS = {
     description: "A coastal Kerala escape known for dramatic red cliffs, beaches, temples and beautiful sunsets.",
     booking: "Hello madurai chandru travels, I'd like to book the Varkala tour.",
     places: [
-      ["Varkala Cliff", "The famous laterite cliff overlooks the Arabian Sea and is lined with shops and cafés.", "https://loremflickr.com/800/520/varkala,cliff,kerala,india"],
-      ["Papanasam Beach", "A scenic beach below the cliff, known for its wide shoreline and sunset views.", "https://loremflickr.com/800/520/papanasam,beach,varkala,india"],
-      ["Janardhana Swamy Temple", "An ancient Vishnu temple near the cliff with a long local pilgrimage tradition.", "https://loremflickr.com/800/520/janardhana,swamy,temple,varkala,india"],
-      ["Sivagiri Mutt", "A major pilgrimage and spiritual centre associated with Sree Narayana Guru.", "https://loremflickr.com/800/520/sivagiri,mutt,varkala,india"],
-      ["Kappil Beach & Lake", "A scenic meeting of lake and sea north of Varkala, ideal for a quiet stop.", "https://loremflickr.com/800/520/kappil,beach,lake,varkala,india"]
+      ["Varkala Cliff", "The famous laterite cliff overlooks the Arabian Sea and is lined with shops and cafés.", "./img/subplaces/varkala_cliff.jpg"],
+      ["Papanasam Beach", "A scenic beach below the cliff, known for its wide shoreline and sunset views.", "./img/subplaces/papanasam_beach.jpg"],
+      ["Janardhana Swamy Temple", "An ancient Vishnu temple near the cliff with a long local pilgrimage tradition.", "./img/subplaces/janardhana_swamy_temple.jpg"],
+      ["Sivagiri Mutt", "A major pilgrimage and spiritual centre associated with Sree Narayana Guru.", "./img/subplaces/varkala_beach.jpg"],
+      ["Kappil Beach & Lake", "A scenic meeting of lake and sea north of Varkala, ideal for a quiet stop.", "./img/subplaces/kappil_lake.jpg"]
     ]
   }
 };
