@@ -595,54 +595,124 @@
   </section>
 
   <!-- ============ GALLERY ============ -->
-  <section class="section" id="gallery">
-    <div class="container">
-      <div class="section__head">
-        <p class="eyebrow reveal">Gallery</p>
-        <h2 class="section__title reveal">Moments from the road</h2>
-        <p class="section__lead reveal">A look at our vehicles, destinations and the travellers who've ridden with us. Tap any photo to zoom in.</p>
-      </div>
-
-      <div class="gallery-grid" id="galleryGrid">
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/tourbus,travel/all?lock=11">
-          <img src="./img/comf.jpg" alt="madurai chandru travels tour vehicle" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Our Fleet</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/vaninterior,travel/all?lock=12">
-          <img src="./img/site.jpg" alt="Comfortable travel vehicle interior" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Comfort Inside</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/hillstation,road,india/all?lock=13">
-          <img src="./img/road.jpg" alt="Scenic hill station road" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Hill Roads</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/beach,sunset,coast/all?lock=14">
-          <img src="./img/coas.jpg" alt="Beach sunset on a coastal trip" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Coastal Escapes</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/backwaters,houseboat,kerala/all?lock=15">
-          <img src="./img/water.jpg" alt="Kerala backwaters houseboat" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Backwater Days</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/southindia,temple,architecture/all?lock=16">
-          <img src="./img/temple.jpg" alt="South Indian temple architecture" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Temple Towns</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/friends,travel,group/all?lock=17">
-          <img src="./img/camp.jpg" alt="Group of travellers on a trip" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Travel Moments</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/waterfall,forest,india/all?lock=18">
-          <img src="./img/silver.jpg" alt="Waterfall on a scenic route" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Scenic Stops</span>
-        </button>
-        <button class="gallery-item reveal" data-full="https://loremflickr.com/1400/1000/mountain,viewpoint,clouds/all?lock=19">
-          <img src="./img/kutralam.jpg" alt="Mountain viewpoint above the clouds" loading="lazy" width="700" height="560">
-          <span class="gallery-item__cap">Above the Clouds</span>
-        </button>
-      </div>
+```html
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow reveal">Gallery</p>
+      <h2 class="section__title reveal">Moments from the road</h2>
+      <p class="section__lead reveal">
+        A look at our vehicles, destinations and the travellers who've ridden with us.
+        Tap any photo to zoom in.
+      </p>
     </div>
-  </section>
+
+    <div class="gallery-grid" id="galleryGrid">
+
+      <button class="gallery-item reveal" data-full="./img/comf.jpg">
+        <img
+          src="./img/comf.jpg"
+          alt="Madurai Chandru Travels tour vehicle"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Our Fleet</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/site.jpg">
+        <img
+          src="./img/site.jpg"
+          alt="Comfortable travel vehicle interior"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Comfort Inside</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/road.jpg">
+        <img
+          src="./img/road.jpg"
+          alt="Scenic hill station road"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Hill Roads</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/coas.jpg">
+        <img
+          src="./img/coas.jpg"
+          alt="Beach sunset on a coastal trip"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Coastal Escapes</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/water.jpg">
+        <img
+          src="./img/water.jpg"
+          alt="Kerala backwaters houseboat"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Backwater Days</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/temple.jpg">
+        <img
+          src="./img/temple.jpg"
+          alt="South Indian temple architecture"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Temple Towns</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/camp.jpg">
+        <img
+          src="./img/camp.jpg"
+          alt="Group of travellers on a trip"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Travel Moments</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/silver.jpg">
+        <img
+          src="./img/silver.jpg"
+          alt="Waterfall on a scenic route"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Scenic Stops</span>
+      </button>
+
+      <button class="gallery-item reveal" data-full="./img/kutralam.jpg">
+        <img
+          src="./img/kutralam.jpg"
+          alt="Mountain viewpoint above the clouds"
+          loading="lazy"
+          width="700"
+          height="560"
+        >
+        <span class="gallery-item__cap">Above the Clouds</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+```
+
 
   <!-- ============ LIGHTBOX ============ -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
