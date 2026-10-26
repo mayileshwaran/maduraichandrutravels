@@ -1,318 +1,490 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Your Trip | Madurai Chandru Travels</title>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#102b46;--gold:#e6b95f;--green:#16804b}
-body{font-family:Arial,sans-serif;background:#f3f5f8;color:#202733;padding:14px}
-.container{max-width:1000px;margin:auto;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 35px #00000012}
-.hero{background:var(--navy);color:#fff;text-align:center;padding:38px 18px}
-.hero .tag{font-size:12px;letter-spacing:3px;color:var(--gold)}
-.hero h1{font-size:clamp(25px,5vw,39px);margin:15px 0 10px}
-.hero p{line-height:1.7;color:#e5edf5}
-.hero .phone{margin-top:12px;font-weight:bold}
-form{padding:26px}
-h2{font-size:26px;margin-bottom:20px}
-h3{font-size:20px;margin:30px 0 15px}
-.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
-.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:8px}
-input,select,textarea{width:100%;padding:13px;border:1px solid #d4dce5;border-radius:8px;font:inherit;background:#fff}
-input:focus,select:focus,textarea:focus{outline:2px solid #b6d6eb;border-color:#246b9d}
-.vehicles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.vehicle{border:2px solid #e0e5eb;border-radius:13px;padding:12px;cursor:pointer;transition:.2s}
-.vehicle:has(input:checked){border-color:#246b9d;background:#f0f7fc}
-.vehicle input{width:auto;margin-bottom:10px}
-.vehicle img{display:block;width:100%;height:145px;object-fit:cover;border-radius:9px;margin-bottom:12px}
-.vehicle h4{font-size:17px;margin-bottom:8px}
-.vehicle p{color:#687586;font-size:13px;margin-bottom:12px}
-.rate{font-size:21px;color:#12653d;font-weight:bold}
-.perkm{font-size:13px;color:#687586}
-.destination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.destination{border:2px solid #e0e5eb;border-radius:12px;overflow:hidden;cursor:pointer;transition:.2s;background:#fff}
-.destination:has(input:checked){border-color:#16804b;background:#f0faf4;box-shadow:0 0 0 1px #16804b}
-.destination input{width:auto;margin:12px 12px 0}
-.destination img{width:100%;height:145px;object-fit:cover;display:block;margin-top:8px}
-.destination-content{padding:12px}
-.destination h4{font-size:16px;margin-bottom:7px}
-.destination p{font-size:12px;color:#687586;line-height:1.5}
-.selected-info{background:#f4f7fa;padding:14px;border-radius:9px;margin-top:16px;font-size:14px;line-height:1.7}
-.field{margin-top:20px}
-.notice{margin-top:15px;padding:13px;background:#fff7e5;color:#72561d;border-radius:8px;font-size:13px;line-height:1.6}
-button{width:100%;padding:16px;background:var(--green);color:#fff;font-size:16px;font-weight:bold;border:0;border-radius:9px;margin-top:24px;cursor:pointer}
-button:hover{background:#10643a}
-.small{text-align:center;font-size:12px;color:#687586;margin-top:12px;line-height:1.6}
-@media(max-width:650px){
-body{padding:7px}
-form{padding:17px}
-.fields{grid-template-columns:1fr;gap:15px}
-.vehicles{grid-template-columns:1fr}
-.vehicle{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;align-items:center}
-.vehicle input{grid-column:1/-1;margin:0}
-.vehicle img{grid-row:span 4;height:95px;margin:0}
-.vehicle h4,.vehicle p{margin:0}
-.vehicle p{margin-top:5px}
-.rate{font-size:19px}
-.destination-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.destination img{height:115px}
-.destination-content{padding:9px}
-.destination h4{font-size:14px}
-.destination p{font-size:11px}
-}
-@media(max-width:360px){.destination-grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c35">
+  <meta name="description" content="Plan your journey with Madurai Chandru Travels. Choose your vehicle, share your travel details and send a booking enquiry on WhatsApp.">
+  <title>Plan Your Trip | Madurai Chandru Travels</title>
+  <style>
+    :root {
+      --ink: #172c32;
+      --muted: #65767a;
+      --deep: #102c35;
+      --deep-2: #1c4148;
+      --accent: #d9a84e;
+      --accent-soft: #fff4dc;
+      --paper: #ffffff;
+      --bg: #f4f6f3;
+      --line: #dfe7e3;
+      --green: #16734a;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(16, 44, 53, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .shell { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--accent), #f0d28b, var(--accent)); }
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid rgba(16,44,53,.08);
+    }
+    .header-inner {
+      min-height: 88px; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 15px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; text-decoration: none; }
+    .brand img { width: 66px; height: 58px; object-fit: contain; flex: 0 0 auto; }
+    .brand-name { font-weight: 850; letter-spacing: -.045em; font-size: clamp(17px, 2.4vw, 23px); line-height: 1.15; }
+    .brand-sub { color: var(--muted); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; margin-top: 5px; }
+    .header-contact { text-align: right; }
+    .header-contact small { display: block; color: var(--muted); font-size: 12px; }
+    .header-contact a { font-weight: 750; text-decoration: none; white-space: nowrap; }
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(ellipse at 85% 15%, rgba(217,168,78,.25), transparent 36%),
+                  linear-gradient(120deg, #102c35 0%, #1c4148 68%, #28535a 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 310px; height: 310px; border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%; right: -90px; bottom: -190px; box-shadow: 0 0 0 35px rgba(255,255,255,.025), 0 0 0 70px rgba(255,255,255,.02);
+    }
+    .hero-inner { position: relative; z-index: 1; padding: 52px 0 54px; max-width: 790px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #f3d28f; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; }
+    .eyebrow::before { content: ""; width: 25px; height: 2px; background: var(--accent); }
+    h1 { margin: 15px 0 13px; font-size: clamp(34px, 5vw, 56px); letter-spacing: -.055em; line-height: 1.08; }
+    .hero p { color: rgba(255,255,255,.78); font-size: clamp(15px, 2vw, 18px); max-width: 650px; margin: 0; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 25px; color: rgba(255,255,255,.9); font-size: 13px; }
+    .trust-row span::before { content: "✓"; color: #f3d28f; font-weight: 900; margin-right: 8px; }
+    main { padding: 34px 0 58px; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .8fr); gap: 24px; align-items: start; }
+    .panel { background: var(--paper); border: 1px solid rgba(16,44,53,.07); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .panel-head { padding: 25px 28px 19px; border-bottom: 1px solid var(--line); }
+    .panel-head h2 { margin: 0; font-size: 22px; letter-spacing: -.035em; }
+    .panel-head p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+    form { padding: 24px 28px 28px; }
+    .section-label { display: flex; align-items: center; gap: 11px; margin: 4px 0 17px; font-size: 14px; font-weight: 850; }
+    .section-label .num { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 9px; background: var(--accent-soft); color: #75521a; font-size: 12px; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-bottom: 26px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    label { display: block; font-size: 12px; font-weight: 750; margin-bottom: 7px; color: #354b50; }
+    .required { color: #b64a3b; }
+    input, select, textarea {
+      width: 100%; min-height: 48px; border: 1px solid #d8e1dd; border-radius: 11px;
+      background: #fff; color: var(--ink); padding: 12px 13px; outline: none; transition: border-color .18s, box-shadow .18s;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: #b58a3d; box-shadow: 0 0 0 3px rgba(217,168,78,.18); }
+    input::placeholder, textarea::placeholder { color: #9aa7a5; }
+    .hint { margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .vehicle-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 11px; margin-bottom: 26px; }
+    .vehicle-option { position: relative; min-width: 0; }
+    .vehicle-option input { position: absolute; opacity: 0; width: 1px; height: 1px; min-height: 1px; }
+    .vehicle-card {
+      display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; cursor: pointer; transition: border-color .18s, box-shadow .18s, transform .18s; background: white;
+    }
+    .vehicle-card:hover { transform: translateY(-2px); }
+    .vehicle-option input:checked + .vehicle-card { border: 2px solid var(--deep-2); box-shadow: 0 0 0 3px rgba(28,65,72,.08); }
+    .vehicle-option input:focus-visible + .vehicle-card { outline: 3px solid rgba(217,168,78,.6); outline-offset: 2px; }
+    .vehicle-card img { width: 100%; height: 104px; object-fit: cover; background: #e8eeeb; }
+    .vehicle-info { padding: 10px 10px 12px; display: flex; flex-direction: column; flex: 1; }
+    .vehicle-name { font-size: 12px; font-weight: 850; line-height: 1.3; }
+    .rate { color: var(--green); font-weight: 850; font-size: 14px; margin-top: 6px; }
+    .rate small { color: var(--muted); font-size: 10px; font-weight: 600; }
+    .select-note { color: var(--muted); font-size: 10px; margin-top: auto; padding-top: 7px; }
+    .actions { display: flex; flex-direction: column; gap: 11px; }
+    .submit {
+      display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 54px;
+      border: 0; border-radius: 13px; padding: 14px 18px; background: #16734a; color: white;
+      font-weight: 850; cursor: pointer; box-shadow: 0 8px 20px rgba(22,115,74,.2); transition: transform .15s, background .15s;
+    }
+    .submit:hover { background: #105d3b; transform: translateY(-1px); }
+    .privacy { color: var(--muted); font-size: 11px; text-align: center; margin: 0; }
+    .side { display: grid; gap: 18px; }
+    .side-card { background: white; border: 1px solid rgba(16,44,53,.07); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .destination-photo { width: 100%; height: 180px; object-fit: cover; display: block; background: #e4eae6; }
+    .side-content { padding: 21px 22px 23px; }
+    .side-content h3 { margin: 0 0 7px; font-size: 18px; letter-spacing: -.025em; }
+    .side-content p { color: var(--muted); font-size: 13px; margin: 0; }
+    .destination-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .destination-chip { border: 1px solid #dfe7e3; border-radius: 99px; background: #f8faf8; padding: 7px 10px; font-size: 11px; font-weight: 700; cursor: pointer; color: #31484d; }
+    .destination-chip:hover, .destination-chip:focus-visible { border-color: var(--accent); background: var(--accent-soft); }
+    .rate-list { padding: 0; margin: 14px 0 0; list-style: none; }
+    .rate-list li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding: 10px 0; font-size: 13px; }
+    .rate-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .rate-list strong { white-space: nowrap; color: var(--green); }
+    .callout { background: #fff8e9; border: 1px solid #f2dfb6; border-radius: 14px; padding: 15px; color: #654b20; font-size: 12px; }
+    .callout strong { display: block; margin-bottom: 3px; font-size: 13px; }
+    footer { background: var(--deep); color: rgba(255,255,255,.78); padding: 24px 0; }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; font-size: 12px; }
+    footer a { color: white; text-decoration: none; font-weight: 750; }
+    .status { display: none; margin: 0 0 16px; padding: 11px 13px; border-radius: 10px; font-size: 12px; }
+    .status.error { display: block; background: #fff0ed; color: #8d2e22; border: 1px solid #f0c6be; }
+    .fallback { display: none; align-items: center; justify-content: center; text-align: center; color: #6b7d7d; font-size: 11px; padding: 12px; min-height: 104px; background: linear-gradient(135deg,#e9eeeb,#dce6e0); }
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      .side { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .side-card:last-child { grid-column: 1 / -1; }
+      .destination-photo { height: 150px; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1120px); }
+      .header-inner { min-height: 74px; gap: 8px; }
+      .brand { gap: 9px; }
+      .brand img { width: 49px; height: 47px; }
+      .brand-name { font-size: 15px; }
+      .brand-sub { font-size: 9px; letter-spacing: .08em; }
+      .header-contact small { font-size: 10px; }
+      .header-contact a { font-size: 12px; }
+      .hero-inner { padding: 38px 0 40px; }
+      h1 { font-size: 36px; }
+      .trust-row { gap: 8px 14px; font-size: 11px; }
+      main { padding: 18px 0 36px; }
+      .panel-head { padding: 21px 18px 16px; }
+      form { padding: 20px 18px 22px; }
+      .fields { grid-template-columns: 1fr; gap: 13px; }
+      .field.full { grid-column: auto; }
+      .vehicle-grid { gap: 7px; }
+      .vehicle-card img { height: 78px; }
+      .vehicle-info { padding: 8px 7px 10px; }
+      .vehicle-name { font-size: 11px; }
+      .rate { font-size: 12px; }
+      .rate small { font-size: 9px; }
+      .select-note { font-size: 9px; }
+      .side { grid-template-columns: 1fr; }
+      .side-card:last-child { grid-column: auto; }
+      .destination-photo { height: 175px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
-<main class="container">
+  <div class="topline"></div>
+  <header>
+    <div class="shell header-inner">
+      <a class="brand" href="https://www.maduraichandrutravels.in/" aria-label="Madurai Chandru Travels official website">
+        <img src="./img/logo.png" alt="Madurai Chandru Travels logo" onerror="this.style.display='none';">
+        <span>
+          <span class="brand-name">Madurai Chandru Travels</span>
+          <span class="brand-sub">Comfort · Relaxation · Happy Journey</span>
+        </span>
+      </a>
+      <div class="header-contact">
+        <small>Need help planning?</small>
+        <a href="https://wa.me/919087137006" target="_blank" rel="noopener">+91 90871 37006</a>
+      </div>
+    </div>
+  </header>
 
-<header class="hero">
-<div class="tag">MADURAI • TAMIL NADU</div>
-<h1>Madurai Chandru Travels</h1>
-<p>Travel planned with care, delivered with trust.</p>
-<p>Comfortable journeys • Trusted service • 24/7 Support</p>
-<p class="phone">WhatsApp: +91 90871 37006</p>
-</header>
+  <section class="hero">
+    <div class="shell hero-inner">
+      <div class="eyebrow">Your journey starts here</div>
+      <h1>Let's plan your<br>next great journey.</h1>
+      <p>Share a few trip details and choose the vehicle that suits your travel. We'll continue with you on WhatsApp to discuss your requirements.</p>
+      <div class="trust-row">
+        <span>Comfortable travel</span>
+        <span>Local & outstation trips</span>
+        <span>WhatsApp enquiry</span>
+      </div>
+    </div>
+  </section>
 
-<form id="bookingForm">
-<h2>Book Your Journey</h2>
+  <main>
+    <div class="shell layout">
+      <section class="panel" aria-labelledby="form-title">
+        <div class="panel-head">
+          <h2 id="form-title">Plan your trip</h2>
+          <p>Fields marked <span class="required">*</span> are required. Your details are sent to WhatsApp when you submit.</p>
+        </div>
+        <form id="bookingForm" novalidate>
+          <p id="formStatus" class="status" role="alert"></p>
 
-<div class="fields">
-<div class="field">
-<label for="name">Full Name *</label>
-<input id="name" required placeholder="Enter your name">
-</div>
-<div class="field">
-<label for="phone">Mobile Number *</label>
-<input id="phone" type="tel" pattern="[6-9][0-9]{9}" required placeholder="10-digit mobile number">
-</div>
-<div class="field">
-<label for="pickup">Pickup Location *</label>
-<input id="pickup" required placeholder="Pickup address">
-</div>
-<div class="field">
-<label for="drop">Drop Location *</label>
-<input id="drop" required placeholder="Destination address">
-</div>
-<div class="field">
-<label for="startDate">Journey Date *</label>
-<input id="startDate" type="date" required>
-</div>
-<div class="field">
-<label for="endDate">Return Date</label>
-<input id="endDate" type="date">
-</div>
-<div class="field">
-<label for="passengers">Number of Passengers *</label>
-<input id="passengers" type="number" min="1" max="30" value="4" required>
-</div>
-<div class="field">
-<label for="tripType">Journey Type *</label>
-<select id="tripType" required>
-<option>One Way</option>
-<option>Round Trip</option>
-<option>Local Sightseeing</option>
-<option>Multi-Day Tour</option>
-</select>
-</div>
-</div>
+          <div class="section-label"><span class="num">01</span> Your details</div>
+          <div class="fields">
+            <div class="field">
+              <label for="fullName">Full name <span class="required">*</span></label>
+              <input id="fullName" name="fullName" autocomplete="name" placeholder="Enter your name" required maxlength="80">
+            </div>
+            <div class="field">
+              <label for="phone">Mobile number <span class="required">*</span></label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number" required maxlength="16">
+              <div class="hint">Include country code if you are outside India.</div>
+            </div>
+            <div class="field">
+              <label for="email">Email (optional)</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="100">
+            </div>
+            <div class="field">
+              <label for="tripType">Trip type <span class="required">*</span></label>
+              <select id="tripType" name="tripType" required>
+                <option value="">Choose trip type</option>
+                <option>Local travel</option>
+                <option>Outstation / round trip</option>
+                <option>One-way drop</option>
+                <option>Airport / railway station transfer</option>
+                <option>Tour package</option>
+                <option>Customized trip</option>
+                <option>Family trip</option>
+                <option>Group tour</option>
+                <option>Corporate travel</option>
+              </select>
+            </div>
+          </div>
 
-<h3>Choose Your Vehicle</h3>
+          <div class="section-label"><span class="num">02</span> Choose your vehicle</div>
+          <div class="vehicle-grid" role="radiogroup" aria-label="Choose a vehicle">
+            <div class="vehicle-option">
+              <input type="radio" id="innova" name="vehicle" value="Innova — ₹18/km" required>
+              <label class="vehicle-card" for="innova">
+                <img src="./img/innova.jpg" alt="Innova vehicle" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="fallback">Innova vehicle photo<br>./img/innova.jpg</span>
+                <span class="vehicle-info">
+                  <span class="vehicle-name">Toyota Innova</span>
+                  <span class="rate">₹18/km</span>
+                  <span class="select-note">Select vehicle</span>
+                </span>
+              </label>
+            </div>
+            <div class="vehicle-option">
+              <input type="radio" id="crysta" name="vehicle" value="Innova Crysta — ₹22/km">
+              <label class="vehicle-card" for="crysta">
+                <img src="./img/crysta.jpg" alt="Innova Crysta vehicle" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="fallback">Innova Crysta photo<br>./img/crysta.jpg</span>
+                <span class="vehicle-info">
+                  <span class="vehicle-name">Innova Crysta</span>
+                  <span class="rate">₹22/km</span>
+                  <span class="select-note">Select vehicle</span>
+                </span>
+              </label>
+            </div>
+            <div class="vehicle-option">
+              <input type="radio" id="tempo" name="vehicle" value="Tempo Traveller — ₹23/km">
+              <label class="vehicle-card" for="tempo">
+                <img src="./img/tempo.jpg" alt="Tempo Traveller vehicle" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="fallback">Tempo Traveller photo<br>./img/tempo.jpg</span>
+                <span class="vehicle-info">
+                  <span class="vehicle-name">Tempo Traveller</span>
+                  <span class="rate">₹23/km</span>
+                  <span class="select-note">Select vehicle</span>
+                </span>
+              </label>
+            </div>
+          </div>
 
-<div class="vehicles">
-<label class="vehicle">
-<input type="radio" name="vehicle" value="Innova — ₹18/km" checked>
-<img src="./img/innova.jpg" alt="Toyota Innova" onerror="this.onerror=null;this.src='./img/innova.png'">
-<h4>Toyota Innova</h4>
-<p>Comfortable family journeys</p>
-<div><span class="rate">₹18</span><span class="perkm"> / km</span></div>
-</label>
+          <div class="section-label"><span class="num">03</span> Journey details</div>
+          <div class="fields">
+            <div class="field">
+              <label for="pickup">Pickup location <span class="required">*</span></label>
+              <input id="pickup" name="pickup" placeholder="e.g. Madurai Railway Station" required maxlength="120">
+            </div>
+            <div class="field">
+              <label for="destination">Destination <span class="required">*</span></label>
+              <input id="destination" name="destination" placeholder="Where would you like to go?" required maxlength="160" list="destinationSuggestions">
+              <datalist id="destinationSuggestions">
+                <option value="Madurai"></option><option value="Rameswaram"></option><option value="Kanyakumari"></option>
+                <option value="Kodaikanal"></option><option value="Ooty"></option><option value="Kerala"></option><option value="Tirupati"></option>
+              </datalist>
+            </div>
+            <div class="field">
+              <label for="startDate">Travel start date <span class="required">*</span></label>
+              <input id="startDate" name="startDate" type="date" required>
+            </div>
+            <div class="field">
+              <label for="endDate">Return / end date</label>
+              <input id="endDate" name="endDate" type="date">
+              <div class="hint">Leave blank for a one-way trip if applicable.</div>
+            </div>
+            <div class="field">
+              <label for="members">Number of travellers <span class="required">*</span></label>
+              <input id="members" name="members" type="number" min="1" max="100" step="1" placeholder="e.g. 4" required>
+            </div>
+            <div class="field">
+              <label for="pickupTime">Preferred pickup time</label>
+              <input id="pickupTime" name="pickupTime" type="time">
+            </div>
+            <div class="field full">
+              <label for="notes">Additional requirements (optional)</label>
+              <textarea id="notes" name="notes" maxlength="1000" placeholder="Places you want to visit, luggage, child seats, or any special requests…"></textarea>
+            </div>
+          </div>
 
-<label class="vehicle">
-<input type="radio" name="vehicle" value="Innova Crysta — ₹22/km">
-<img src="./img/crysta.jpg" alt="Innova Crysta" onerror="this.onerror=null;this.src='./img/crysta.png'">
-<h4>Innova Crysta</h4>
-<p>Premium travel experience</p>
-<div><span class="rate">₹22</span><span class="perkm"> / km</span></div>
-</label>
+          <div class="actions">
+            <button class="submit" type="submit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .15 5.35.15 11.92c0 2.1.55 4.16 1.6 5.97L.05 24l6.27-1.64a11.93 11.93 0 0 0 5.74 1.46h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.07 21.8a9.88 9.88 0 0 1-5.03-1.38l-.36-.21-3.72.98.99-3.63-.24-.37a9.87 9.87 0 0 1-1.52-5.27c0-5.46 4.44-9.9 9.9-9.9a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.88-9.91 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+              Book Now
+            </button>
+            <p class="privacy">Your enquiry opens in WhatsApp. Nothing is saved or submitted to a website server.</p>
+          </div>
+        </form>
+      </section>
 
-<label class="vehicle">
-<input type="radio" name="vehicle" value="Tempo Traveller — ₹23/km">
-<img src="./img/tempo.jpg" alt="Tempo Traveller" onerror="this.onerror=null;this.src='./img/tempo.png'">
-<h4>Tempo Traveller</h4>
-<p>Group and family travel</p>
-<div><span class="rate">₹23</span><span class="perkm"> / km</span></div>
-</label>
-</div>
+      <aside class="side" aria-label="Travel information">
+        <section class="side-card">
+          <img class="destination-photo" src="./img/madurai.jpg" alt="Madurai travel destination" loading="lazy" onerror="this.style.display='none';">
+          <div class="side-content">
+            <h3>Where will the road take you?</h3>
+            <p>Choose a popular destination or type your own pickup and drop locations in the form.</p>
+            <div class="destination-list" aria-label="Popular destinations">
+              <button class="destination-chip" type="button" data-destination="Madurai">Madurai</button>
+              <button class="destination-chip" type="button" data-destination="Rameswaram">Rameswaram</button>
+              <button class="destination-chip" type="button" data-destination="Kanyakumari">Kanyakumari</button>
+              <button class="destination-chip" type="button" data-destination="Kodaikanal">Kodaikanal</button>
+              <button class="destination-chip" type="button" data-destination="Ooty">Ooty</button>
+              <button class="destination-chip" type="button" data-destination="Kerala">Kerala</button>
+              <button class="destination-chip" type="button" data-destination="Tirupati">Tirupati</button>
+            </div>
+          </div>
+        </section>
+        <section class="side-card">
+          <div class="side-content">
+            <h3>Vehicle rates</h3>
+            <p>Per-kilometre rates supplied for this page.</p>
+            <ul class="rate-list">
+              <li><span>Innova</span><strong>₹18/km</strong></li>
+              <li><span>Innova Crysta</span><strong>₹22/km</strong></li>
+              <li><span>Tempo Traveller</span><strong>₹23/km</strong></li>
+            </ul>
+            <div class="hint">No trip total is calculated or displayed. Confirm the final quote and applicable trip terms with our team.</div>
+          </div>
+        </section>
+        <section class="side-card">
+          <div class="side-content">
+            <h3>Need help deciding?</h3>
+            <p>Tell us your group size, route and travel dates. We'll discuss the suitable vehicle and trip arrangements with you.</p>
+            <div style="margin-top:16px">
+              <a href="https://wa.me/919087137006" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-align:center;background:#edf7f0;color:#17633f;border:1px solid #cde7d4;text-decoration:none;font-weight:800;padding:12px;border-radius:11px;font-size:13px">Chat with us  ↗</a>
+            </div>
+          </div>
+        </section>
+        <div class="callout"><strong>Booking enquiry only</strong>Submitting this form opens a pre-filled WhatsApp message. Your booking is not confirmed until the travel details are discussed and confirmed with Madurai Chandru Travels.</div>
+      </aside>
+    </div>
+  </main>
 
-<h3>Explore Our Tour Destinations</h3>
-<p style="font-size:14px;color:#687586;line-height:1.6;margin-bottom:16px">
-Select your preferred destination. Choose Custom Trip if your destination is not listed.
-</p>
+  <footer>
+    <div class="shell footer-inner">
+      <span>© <span id="year"></span> Madurai Chandru Travels · Madurai, Tamil Nadu</span>
+      <span><a href="https://www.maduraichandrutravels.in/" target="_blank" rel="noopener">Official website</a> &nbsp;·&nbsp; <a href="tel:+919087137006">+91 90871 37006</a></span>
+    </div>
+  </footer>
 
-<div class="destination-grid">
+  <script>
+    (() => {
+      "use strict";
+      const form = document.getElementById("bookingForm");
+      const status = document.getElementById("formStatus");
+      const startDate = document.getElementById("startDate");
+      const endDate = document.getElementById("endDate");
+      const phone = document.getElementById("phone");
+      const year = document.getElementById("year");
 
-<label class="destination">
-<input type="radio" name="destination" value="Madurai Local Tour" checked>
-<img src="https://images.unsplash.com/photo-1600100397608-f0104f9a7f9c?auto=format&fit=crop&w=700&q=80" alt="Madurai temple" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=700&q=80'">
-<div class="destination-content">
-<h4>Madurai Local</h4>
-<p>Meenakshi Amman Temple and city sightseeing.</p>
-</div>
-</label>
+      year.textContent = new Date().getFullYear();
 
-<label class="destination">
-<input type="radio" name="destination" value="Rameswaram Tour">
-<img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=700&q=80" alt="Rameswaram temple and pilgrimage" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=700&q=80'">
-<div class="destination-content">
-<h4>Rameswaram</h4>
-<p>Ramanathaswamy Temple and coastal sights.</p>
-</div>
-</label>
+      // Use local calendar date rather than UTC to avoid timezone date shifts.
+      const now = new Date();
+      const localToday = [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+      ].join("-");
+      startDate.min = localToday;
+      endDate.min = localToday;
 
-<label class="destination">
-<input type="radio" name="destination" value="Kanyakumari Tour">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Kanyakumari coastal scenery">
-<div class="destination-content">
-<h4>Kanyakumari</h4>
-<p>Sea views, sunrise and Vivekananda Rock area.</p>
-</div>
-</label>
+      startDate.addEventListener("change", () => {
+        endDate.min = startDate.value || localToday;
+        if (endDate.value && startDate.value && endDate.value < startDate.value) {
+          endDate.value = "";
+        }
+      });
 
-<label class="destination">
-<input type="radio" name="destination" value="Kodaikanal Tour">
-<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80" alt="Kodaikanal mountains">
-<div class="destination-content">
-<h4>Kodaikanal</h4>
-<p>Cool climate, hills, lake and scenic viewpoints.</p>
-</div>
-</label>
+      document.querySelectorAll("[data-destination]").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.getElementById("destination").value = button.dataset.destination;
+          document.getElementById("destination").focus();
+        });
+      });
 
-<label class="destination">
-<input type="radio" name="destination" value="Ooty Tour">
-<img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=700&q=80" alt="Ooty nature and hills">
-<div class="destination-content">
-<h4>Ooty</h4>
-<p>Mountain roads, gardens and nature escapes.</p>
-</div>
-</label>
+      function showError(message, target) {
+        status.textContent = message;
+        status.className = "status error";
+        if (target) {
+          target.focus();
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
 
-<label class="destination">
-<input type="radio" name="destination" value="Kerala Tour">
-<img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=700&q=80" alt="Kerala backwaters">
-<div class="destination-content">
-<h4>Kerala</h4>
-<p>Green landscapes, backwaters and hill stations.</p>
-</div>
-</label>
+      function fieldValue(id) {
+        return document.getElementById(id).value.trim();
+      }
 
-<label class="destination">
-<input type="radio" name="destination" value="Tirupati Tour">
-<img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=700&q=80" alt="Indian temple architecture">
-<div class="destination-content">
-<h4>Tirupati</h4>
-<p>Temple pilgrimage and spiritual journey.</p>
-</div>
-</label>
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        status.className = "status";
+        status.textContent = "";
 
-<label class="destination">
-<input type="radio" name="destination" value="Custom Trip">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=700&q=80" alt="Scenic travel destination">
-<div class="destination-content">
-<h4>Custom Trip</h4>
-<p>Tell us where you want to travel.</p>
-</div>
-</label>
+        if (!form.checkValidity()) {
+          const invalid = form.querySelector(":invalid");
+          showError("Please complete all required fields with valid details.", invalid);
+          return;
+        }
 
-</div>
+        const selectedVehicle = form.querySelector('input[name="vehicle"]:checked');
+        if (!selectedVehicle) {
+          showError("Please select a vehicle to continue.", document.getElementById("innova"));
+          return;
+        }
 
-<div class="selected-info">
-<strong>Selected destination:</strong>
-<span id="selectedDestination">Madurai Local Tour</span>
-<br>
-<strong>Vehicle pricing:</strong> Displayed per kilometre above. No automatic fare calculation.
-</div>
+        const digits = phone.value.replace(/\D/g, "");
+        if (digits.length < 10 || digits.length > 15) {
+          showError("Please enter a valid mobile number (10–15 digits, including country code if needed).", phone);
+          return;
+        }
 
-<div class="field">
-<label for="notes">Additional Requirements</label>
-<textarea id="notes" rows="3" placeholder="Pickup time, sightseeing places, luggage or extra stops"></textarea>
-</div>
+        if (endDate.value && startDate.value && endDate.value < startDate.value) {
+          showError("Return / end date cannot be earlier than the travel start date.", endDate);
+          return;
+        }
 
-<div class="notice">
-The displayed rates are per-kilometre reference rates. Final fare, minimum kilometres, driver allowance, tolls, parking and other applicable charges must be confirmed with the travel operator.
-</div>
-
-<button type="submit">Send Booking Request on WhatsApp</button>
-<p class="small">Your selected vehicle and destination will be sent through WhatsApp for confirmation.</p>
-
-</form>
-</main>
-
-<script>
-const $ = id => document.getElementById(id);
-const form = $("bookingForm");
-
-$("startDate").min = new Date().toLocaleDateString("en-CA");
-
-$("startDate").addEventListener("change", () => {
-  $("endDate").min = $("startDate").value;
-
-  if ($("endDate").value && $("endDate").value < $("startDate").value) {
-    $("endDate").value = "";
-  }
-});
-
-$("endDate").addEventListener("change", () => {
-  if ($("startDate").value && $("endDate").value &&
-      $("endDate").value < $("startDate").value) {
-    $("endDate").setCustomValidity("Return date cannot be before the journey date.");
-  } else {
-    $("endDate").setCustomValidity("");
-  }
-});
-
-document.querySelectorAll('input[name="destination"]').forEach(input => {
-  input.addEventListener("change", () => {
-    $("selectedDestination").textContent = input.value;
-  });
-});
-
-form.addEventListener("submit", event => {
-  event.preventDefault();
-
-  if (!form.reportValidity()) return;
-
-  const vehicle = form.querySelector('input[name="vehicle"]:checked').value;
-  const destination = form.querySelector('input[name="destination"]:checked').value;
-
-  const message = [
-    "*MADURAI CHANDRU TRAVELS - BOOKING ENQUIRY*",
-    "",
-    "*Name:* " + $("name").value.trim(),
-    "*Mobile:* " + $("phone").value.trim(),
-    "*Pickup:* " + $("pickup").value.trim(),
-    "*Drop / Destination:* " + $("drop").value.trim(),
-    "*Selected Tour:* " + destination,
-    "*Vehicle:* " + vehicle,
-    "*Journey Type:* " + $("tripType").value,
-    "*Journey Date:* " + $("startDate").value,
-    "*Return Date:* " + ($("endDate").value || "Not specified"),
-    "*Passengers:* " + $("passengers").value,
-    "*Additional Requirements:* " + ($("notes").value.trim() || "None"),
-    "",
-    "Please confirm availability and the final fare, including applicable extra charges."
-  ].join("\n");
-
-  window.open(
-    "https://wa.me/919087137006?text=" + encodeURIComponent(message),
-    "_blank"
-  );
-});
-</script>
+        const lines = [
+          "MADURAI CHANDRU TRAVELS — BOOKING ENQUIRY",
+          "",
+          "Customer name: " + fieldValue("fullName"),
+          "Mobile: " + fieldValue("phone"),
+          "Email: " + (fieldValue("email") || "Not provided"),
+          "Trip type: " + fieldValue("tripType"),
+          "Vehicle: " + selectedVehicle.value,
+          "Pickup location: " + fieldValue("pickup"),
+          "Destination: " + fieldValue("destination"),
+          "Travel start date: " + fieldValue("startDate"),
+          "Return / end date: " + (fieldValue("endDate") || "Not specified"),
+          "Number of travellers: " + fieldValue("members"),
+          "Preferred pickup time: " + (fieldValue("pickupTime") || "Not specified"),
+          "Additional requirements: " + (fieldValue("notes") || "None"),
+          "",
+          "Please confirm availability and share the quotation. I understand this is an enquiry and not a confirmed booking."
+        ];
+        const whatsappURL = "https://wa.me/919087137006?text=" + encodeURIComponent(lines.join("\n"));
+        const popup = window.open(whatsappURL, "_blank", "noopener,noreferrer");
+        if (!popup) {
+          // Some mobile browsers block popups. Navigate in the same tab as a fallback.
+          window.location.href = whatsappURL;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
