@@ -1,325 +1,302 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a Trip | Madurai Chandru Travels</title>
+<title>Booking | Madurai Chandru Travels</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--blue:#123b65;--gold:#f5b400;--bg:#f4f7fb}
-body{font-family:Arial,sans-serif;background:var(--bg);color:#202b38;line-height:1.6}
-.header{text-align:center;background:#fff;padding:25px 15px}
-.header img{width:95px;max-height:70px;object-fit:contain}
-.header h1{color:var(--blue);font-size:26px}
-.header p,.muted{color:#667085;font-size:14px}
-.container{max-width:1100px;margin:25px auto;padding:0 15px 35px}
-.card{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 25px #0000000a;margin-bottom:22px}
-h2{font-size:21px;color:var(--blue);margin-bottom:5px}
-.section-intro{font-size:14px;color:#667085;margin-bottom:20px}
-.vehicle-grid,.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.choice{border:2px solid #e0e6ee;border-radius:12px;overflow:hidden;cursor:pointer;background:#fff;transition:.2s}
-.choice:has(input:checked){border-color:var(--blue);box-shadow:0 0 0 2px #123b6518}
-.choice input{accent-color:var(--blue)}
-.choice img{width:100%;height:155px;object-fit:cover;display:block;background:#e9eef5}
-.choice-content{padding:13px}
-.choice h3{font-size:16px;color:var(--blue)}
-.choice p{font-size:13px;color:#667085;margin:3px 0 9px}
-.pick{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:bold}
-.pick input{width:auto}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.field{display:flex;flex-direction:column;gap:6px}
-.full{grid-column:1/-1}
-label{font-size:14px;font-weight:bold;color:#344054}
-input,select,textarea{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:8px;font:inherit;font-size:14px;background:#fff}
-input:focus,select:focus,textarea:focus{outline:2px solid #c3d6eb;border-color:var(--blue)}
-textarea{min-height:85px;resize:vertical}
-.divider{border:0;border-top:1px solid #e7ebf0;margin:25px 0}
-.btn{width:100%;padding:15px;background:var(--blue);color:#fff;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:22px}
-.btn:hover{background:#0b2948}
-.footer{text-align:center;color:#667085;font-size:13px;padding:0 15px 25px}
-.footer a{color:var(--blue);font-weight:bold;text-decoration:none}
-@media(max-width:750px){.vehicle-grid,.package-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:500px){
- .vehicle-grid,.package-grid,.form-grid{grid-template-columns:1fr}
- .full{grid-column:auto}
- .card{padding:18px 14px}
- .choice{display:grid;grid-template-columns:38% 1fr;align-items:center}
- .choice img{height:100%;min-height:130px}
- .header h1{font-size:22px}
+body{font-family:Arial,sans-serif;background:#f2f4f7;color:#202733;padding:15px}
+.container{max-width:950px;margin:auto;background:white;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px #0001}
+.hero{background:#102b46;color:white;text-align:center;padding:35px 18px;line-height:1.8}
+.hero span{color:#f2c66d;letter-spacing:2px;font-size:12px}
+.hero h1{font-size:clamp(25px,5vw,38px);margin:12px 0}
+form{padding:26px}
+h2{font-size:26px;margin-bottom:22px}
+h3{margin:28px 0 15px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.field label,.fields label{display:block;font-weight:bold;font-size:14px;margin-bottom:8px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #d4dce5;border-radius:8px;font:inherit;background:white}
+.vehicles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.vehicle{display:block;padding:12px;border:2px solid #e0e5eb;border-radius:12px;cursor:pointer}
+.vehicle:has(input:checked){border-color:#246b9d;background:#f0f7fc}
+.vehicle input{width:auto;margin-bottom:10px}
+.vehicle img{width:100%;height:130px;object-fit:cover;border-radius:8px;margin-bottom:10px;background:#e9edf2}
+.vehicle h4{margin:5px 0 8px}
+.vehicle p,.vehicle small{display:block;color:#687586;font-size:13px;margin:7px 0}
+.vehicle strong{display:block;color:#11613b;font-size:14px;line-height:1.5}
+.notice{background:#f5f8fb;padding:12px;margin:15px 0;border-radius:8px;font-size:13px;line-height:1.6}
+.fare{background:#f5f8fb;border-radius:12px;padding:20px;margin-top:25px}
+.fare h3{margin-top:0}
+.fare-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #dce3eb;font-size:14px}
+.fare-row strong{text-align:right}
+.total{border:0;padding-top:20px;color:#11613b;font-size:20px;font-weight:bold}
+.disclaimer,.small{color:#687586;font-size:12px;line-height:1.7;margin-top:12px}
+button{width:100%;padding:16px;margin-top:22px;background:#16804b;color:white;font-size:16px;font-weight:bold;border:0;border-radius:9px;cursor:pointer}
+button:hover{background:#10663b}
+.small{text-align:center}
+@media(max-width:650px){
+body{padding:8px}form{padding:17px}
+.fields,.vehicles{grid-template-columns:1fr}
+.vehicle{display:grid;grid-template-columns:100px 1fr;gap:7px 12px;align-items:center}
+.vehicle input{grid-column:1/-1;margin:0}
+.vehicle img{grid-row:span 3;height:90px;margin:0}
+.vehicle h4,.vehicle p,.vehicle small,.vehicle strong{margin:0}
+.vehicle p,.vehicle small{margin-top:5px}
+.total{font-size:17px}
 }
 </style>
 </head>
-<body>
 
-<header class="header">
-  <img src="./img/logo.png" alt="Madurai Chandru Travels Logo"
-       onerror="this.style.display='none'">
-  <h1>Madurai Chandru Travels</h1>
-  <p>Travel planned with care, delivered with trust.</p>
+<body>
+<main class="container">
+
+<header class="hero">
+<span>MADURAI • TAMIL NADU</span>
+<h1>Madurai Chandru Travels</h1>
+<p>Travel planned with care, delivered with trust.</p>
+<p>24/7 Support on WhatsApp · +91 90871 37006</p>
 </header>
 
-<main class="container">
 <form id="bookingForm">
+<h2>Book Your Journey</h2>
 
-<section class="card">
-  <h2>Choose Your Vehicle</h2>
-  <p class="section-intro">Select a vehicle for your trip.</p>
+<div class="fields">
+<div><label for="name">Full Name *</label><input id="name" required placeholder="Your name"></div>
+<div><label for="phone">Mobile Number *</label><input id="phone" type="tel" pattern="[6-9][0-9]{9}" required placeholder="10-digit number"></div>
+<div><label for="pickup">Pickup Location *</label><input id="pickup" required placeholder="Pickup address"></div>
+<div><label for="drop">Destination *</label><input id="drop" required placeholder="Drop address"></div>
+<div><label for="startDate">Journey Date *</label><input id="startDate" type="date" required></div>
+<div><label for="endDate">Return Date</label><input id="endDate" type="date"></div>
+<div><label for="passengers">Passengers *</label><input id="passengers" type="number" min="1" max="30" value="4" required></div>
+<div><label for="tripType">Pricing Type</label>
+<select id="tripType">
+<option value="local">Local Package — 12 hours / 100 km</option>
+<option value="intercity">Intercity Day Rental</option>
+<option value="long">Long Journey — Per KM</option>
+</select></div>
+</div>
 
-  <div class="vehicle-grid">
-    <label class="choice">
-      <img src="./img/innova.jpg" alt="Innova"
-           onerror="this.onerror=null;this.src='./img/innova.png'">
-      <div class="choice-content">
-        <h3>Innova</h3>
-        <p>Comfortable family travel</p>
-        <div class="pick"><input type="radio" name="vehicle" value="Innova" required> Select Innova</div>
-      </div>
-    </label>
+<h3>Choose Your Vehicle</h3>
+<div class="vehicles">
 
-    <label class="choice">
-      <img src="./img/crysta.jpg" alt="Innova Crysta"
-           onerror="this.onerror=null;this.src='./img/crysta.png'">
-      <div class="choice-content">
-        <h3>Innova Crysta</h3>
-        <p>Premium comfort</p>
-        <div class="pick"><input type="radio" name="vehicle" value="Innova Crysta" required> Select Crysta</div>
-      </div>
-    </label>
+<label class="vehicle">
+<input type="radio" name="vehicle" value="innova" checked>
+<img src="./img/innova.jpg" alt="Innova" onerror="this.onerror=null;this.src='./img/innova.png'">
+<h4>Innova</h4><p>7+1 seating</p>
+<strong>₹3,800 local package</strong><small>₹18/km long journey</small>
+</label>
 
-    <label class="choice">
-      <img src="./img/tempo.jpg" alt="Tempo Traveller"
-           onerror="this.onerror=null;this.src='./img/tempo.png'">
-      <div class="choice-content">
-        <h3>Tempo Traveller</h3>
-        <p>Group and family tours</p>
-        <div class="pick"><input type="radio" name="vehicle" value="Tempo Traveller" required> Select Tempo</div>
-      </div>
-    </label>
-  </div>
+<label class="vehicle">
+<input type="radio" name="vehicle" value="crysta">
+<img src="./img/crysta.jpg" alt="Innova Crysta" onerror="this.onerror=null;this.src='./img/crysta.png'">
+<h4>Innova Crysta</h4><p>6+1 seating</p>
+<strong>₹4,700 local package</strong><small>₹22/km long journey</small>
+</label>
+
+<label class="vehicle">
+<input type="radio" name="vehicle" value="tempo">
+<img src="./img/tempo.jpg" alt="Tempo Traveller" onerror="this.onerror=null;this.src='./img/tempo.png'">
+<h4>Tempo Traveller</h4><p>14+1 seating</p>
+<strong>₹4,700 local package</strong><small>₹23/km long journey</small>
+</label>
+
+</div>
+
+<h3>Tour Package</h3>
+<div class="fields">
+<div><label for="tour">Destination Package</label>
+<select id="tour">
+<option value="custom">Custom Trip</option>
+<option value="madurai">Madurai Local Tour</option>
+<option value="rameswaram">Rameswaram Tour</option>
+<option value="kanyakumari">Kanyakumari Tour</option>
+<option value="kodaikanal">Kodaikanal Tour</option>
+<option value="ooty">Ooty Tour</option>
+<option value="kerala">Kerala Tour</option>
+<option value="tirupati">Tirupati Tour</option>
+</select></div>
+<div><label for="km">Estimated Total KM</label><input id="km" type="number" min="1" value="100" required></div>
+<div><label for="days">Number of Days</label><input id="days" type="number" min="1" max="30" value="1" required></div>
+<div><label for="hours">Extra Local Hours</label><input id="hours" type="number" min="0" max="24" value="0"></div>
+</div>
+
+<p class="notice" id="tourNote">Custom Trip: confirm the route distance and duration before booking.</p>
+
+<div style="margin-top:20px">
+<label for="notes">Additional Requirements</label>
+<textarea id="notes" rows="3" placeholder="Pickup time, sightseeing, luggage, extra stops..."></textarea>
+</div>
+
+<section class="fare">
+<h3>Fare Estimate</h3>
+<div class="fare-row"><span>Vehicle</span><strong id="vehicleName"></strong></div>
+<div class="fare-row"><span>Tariff</span><strong id="tariffName"></strong></div>
+<div class="fare-row"><span>Base Rental / Package</span><strong id="base"></strong></div>
+<div class="fare-row"><span>Kilometre Charges</span><strong id="kmCharge"></strong></div>
+<div class="fare-row"><span>Driver Bata</span><strong id="bata"></strong></div>
+<div class="fare-row"><span>Extra Hours</span><strong id="extraHours"></strong></div>
+<div class="fare-row total"><span>Estimated Total</span><strong id="total"></strong></div>
+<p class="disclaimer">Estimate only. Toll, parking, permits, night halt, hill charges and other applicable costs may be extra. Confirm final fare with the operator.</p>
 </section>
 
-<section class="card">
-  <h2>Explore Tour Packages</h2>
-  <p class="section-intro">Select a destination or choose a custom trip. Final price and itinerary will be confirmed with you.</p>
-
-  <div class="package-grid">
-    <label class="choice">
-      <img src="./img/madurai.jpg" alt="Madurai tour"
-           onerror="this.onerror=null;this.src='./img/madurai.png'">
-      <div class="choice-content">
-        <h3>Madurai Local Tour</h3>
-        <p>Meenakshi Amman Temple and local attractions</p>
-        <div class="pick"><input type="radio" name="package" value="Madurai Local Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/rameswaram.jpg" alt="Rameswaram tour"
-           onerror="this.onerror=null;this.src='./img/rameswaram.png'">
-      <div class="choice-content">
-        <h3>Rameswaram</h3>
-        <p>Ramanathaswamy Temple and Pamban Bridge</p>
-        <div class="pick"><input type="radio" name="package" value="Rameswaram Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/kanyakumari.jpg" alt="Kanyakumari tour"
-           onerror="this.onerror=null;this.src='./img/kanyakumari.png'">
-      <div class="choice-content">
-        <h3>Kanyakumari</h3>
-        <p>Vivekananda Rock Memorial and coastal views</p>
-        <div class="pick"><input type="radio" name="package" value="Kanyakumari Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/kodaikanal.jpg" alt="Kodaikanal tour"
-           onerror="this.onerror=null;this.src='./img/kodaikanal.png'">
-      <div class="choice-content">
-        <h3>Kodaikanal</h3>
-        <p>Lake, hills and scenic viewpoints</p>
-        <div class="pick"><input type="radio" name="package" value="Kodaikanal Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/ooty.jpg" alt="Ooty tour"
-           onerror="this.onerror=null;this.src='./img/ooty.png'">
-      <div class="choice-content">
-        <h3>Ooty</h3>
-        <p>Mountain scenery and botanical gardens</p>
-        <div class="pick"><input type="radio" name="package" value="Ooty Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/kerala.jpg" alt="Kerala tour"
-           onerror="this.onerror=null;this.src='./img/kerala.png'">
-      <div class="choice-content">
-        <h3>Kerala</h3>
-        <p>Green landscapes and backwater destinations</p>
-        <div class="pick"><input type="radio" name="package" value="Kerala Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/tirupati.jpg" alt="Tirupati tour"
-           onerror="this.onerror=null;this.src='./img/tirupati.png'">
-      <div class="choice-content">
-        <h3>Tirupati</h3>
-        <p>Temple pilgrimage trip</p>
-        <div class="pick"><input type="radio" name="package" value="Tirupati Tour" required> Select package</div>
-      </div>
-    </label>
-
-    <label class="choice">
-      <img src="./img/custom-tour.jpg" alt="Custom tour"
-           onerror="this.onerror=null;this.src='./img/custom-tour.png'">
-      <div class="choice-content">
-        <h3>Custom Tour</h3>
-        <p>Plan your own destination and stops</p>
-        <div class="pick"><input type="radio" name="package" value="Custom Tour" required> Select package</div>
-      </div>
-    </label>
-  </div>
-</section>
-
-<section class="card">
-  <h2>Your Booking Details</h2>
-  <p class="section-intro">Fill in your trip information to send an enquiry.</p>
-
-  <div class="form-grid">
-    <div class="field">
-      <label for="name">Full Name *</label>
-      <input id="name" name="name" required placeholder="Enter your name">
-    </div>
-
-    <div class="field">
-      <label for="phone">Mobile Number *</label>
-      <input id="phone" name="phone" type="tel" required
-             pattern="[6-9][0-9]{9}" maxlength="10"
-             placeholder="10-digit mobile number">
-    </div>
-
-    <div class="field">
-      <label for="pickup">Pickup Location *</label>
-      <input id="pickup" name="pickup" required placeholder="Pickup location">
-    </div>
-
-    <div class="field">
-      <label for="destination">Destination / Route *</label>
-      <input id="destination" name="destination" required
-             placeholder="Enter destination or route">
-    </div>
-
-    <div class="field">
-      <label for="startDate">Travel Start Date *</label>
-      <input id="startDate" name="startDate" type="date" required>
-    </div>
-
-    <div class="field">
-      <label for="endDate">Return Date</label>
-      <input id="endDate" name="endDate" type="date">
-    </div>
-
-    <div class="field">
-      <label for="passengers">Number of Passengers *</label>
-      <select id="passengers" name="passengers" required>
-        <option value="">Select passengers</option>
-        <option>1</option><option>2</option><option>3</option>
-        <option>4</option><option>5</option><option>6</option>
-        <option>7</option><option>8</option><option>9</option>
-        <option>10</option><option>11</option><option>12</option>
-        <option>13</option><option>14</option><option>15</option>
-        <option>16</option><option>17</option><option>18</option>
-        <option>19</option><option>20</option><option>21</option>
-        <option>22</option><option>23</option><option>24</option>
-        <option>25</option><option>26</option><option>27</option>
-        <option>28</option><option>29</option><option>30</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="tripType">Trip Type *</label>
-      <select id="tripType" name="tripType" required>
-        <option value="">Select trip type</option>
-        <option>One Way</option>
-        <option>Round Trip</option>
-        <option>Multi-Day Tour</option>
-        <option>Local Sightseeing</option>
-        <option>Temple Tour</option>
-        <option>Airport Pickup / Drop</option>
-        <option>Wedding / Function</option>
-      </select>
-    </div>
-
-    <div class="field full">
-      <label for="message">Additional Requirements</label>
-      <textarea id="message" name="message"
-        placeholder="Preferred stops, timings, itinerary or other requirements"></textarea>
-    </div>
-  </div>
-
-  <button class="btn" type="submit">Send Booking Enquiry on WhatsApp</button>
-</section>
+<button type="submit">Book Through WhatsApp</button>
+<p class="small">Your booking request will open in WhatsApp for confirmation.</p>
 </form>
 </main>
 
-<footer class="footer">
-  <p>Need assistance? <a href="tel:+919087137006">+91 90871 37006</a></p>
-  <p>© <span id="year"></span> Madurai Chandru Travels</p>
-</footer>
-
 <script>
-const form = document.getElementById("bookingForm");
-const start = document.getElementById("startDate");
-const end = document.getElementById("endDate");
+const RATES={
+innova:{
+name:"Innova",seats:"7+1",
+local:{base:3800,includedKm:100,extraKm:18,extraHour:200},
+intercity:{daily:1500,perKm:13,bata:1000},
+long:{perKm:18,bata:1000}
+},
+crysta:{
+name:"Innova Crysta",seats:"6+1",
+local:{base:4700,includedKm:100,extraKm:22,extraHour:250},
+intercity:{daily:2000,perKm:17,bata:1000},
+long:{perKm:22,bata:1000}
+},
+tempo:{
+name:"Tempo Traveller",seats:"14+1",
+local:{base:4700,includedKm:100,extraKm:23,extraHour:300},
+intercity:{daily:2000,perKm:17,bata:1000},
+long:{perKm:23,bata:1000}
+}
+};
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const TOURS={
+custom:{name:"Custom Trip",km:100,days:1},
+madurai:{name:"Madurai Local Tour",km:100,days:1},
+rameswaram:{name:"Rameswaram Tour",km:340,days:1},
+kanyakumari:{name:"Kanyakumari Tour",km:500,days:2},
+kodaikanal:{name:"Kodaikanal Tour",km:450,days:2},
+ooty:{name:"Ooty Tour",km:750,days:3},
+kerala:{name:"Kerala Tour",km:700,days:3},
+tirupati:{name:"Tirupati Tour",km:900,days:3}
+};
 
-const now = new Date();
-const today = [
-  now.getFullYear(),
-  String(now.getMonth() + 1).padStart(2, "0"),
-  String(now.getDate()).padStart(2, "0")
-].join("-");
+const $=id=>document.getElementById(id);
+const form=$("bookingForm");
+const money=n=>new Intl.NumberFormat("en-IN",{
+style:"currency",currency:"INR",maximumFractionDigits:0
+}).format(n);
 
-start.min = today;
-end.min = today;
+function calculateFare(){
+const key=form.querySelector('input[name="vehicle"]:checked').value;
+const v=RATES[key];
+const type=$("tripType").value;
+const km=Math.max(1,Number($("km").value)||1);
+const days=Math.max(1,Number($("days").value)||1);
+const hours=Math.max(0,Number($("hours").value)||0);
 
-start.addEventListener("change", () => {
-  end.min = start.value || today;
-  if (end.value && end.value < start.value) end.value = "";
+let base=0,kmCharge=0,bata=0,extra=0,total=0,tariff="";
+
+if(type==="local"){
+tariff="Local package — 12 hours / 100 km";
+base=v.local.base;
+kmCharge=Math.max(0,km-v.local.includedKm)*v.local.extraKm;
+extra=hours*v.local.extraHour;
+total=base+kmCharge+extra;
+}else if(type==="intercity"){
+tariff="Intercity day rental";
+base=v.intercity.daily*days;
+kmCharge=km*v.intercity.perKm;
+bata=v.intercity.bata*days;
+total=base+kmCharge+bata;
+}else{
+tariff="Long journey — per kilometre";
+kmCharge=km*v.long.perKm;
+bata=v.long.bata*days;
+total=kmCharge+bata;
+}
+
+$("vehicleName").textContent=v.name+" ("+v.seats+")";
+$("tariffName").textContent=tariff;
+$("base").textContent=money(base);
+$("kmCharge").textContent=money(kmCharge);
+$("bata").textContent=money(bata);
+$("extraHours").textContent=money(extra);
+$("total").textContent=money(total);
+
+return {v,type,km,days,hours,base,kmCharge,bata,extra,total,tariff};
+}
+
+function updateTour(){
+const t=TOURS[$("tour").value];
+$("km").value=t.km;
+$("days").value=t.days;
+$("tourNote").textContent=t.name+": estimated "+t.km+" km over "+t.days+
+(t.days===1?" day. ":" days. ")+
+"These are itinerary estimates; edit them to match your actual trip.";
+calculateFare();
+}
+
+form.addEventListener("change",e=>{
+if(e.target.id==="tour")updateTour();
+else calculateFare();
+});
+["km","days","hours"].forEach(id=>$(id).addEventListener("input",calculateFare));
+
+$("startDate").min=new Date().toLocaleDateString("en-CA");
+$("startDate").addEventListener("change",()=>{
+$("endDate").min=$("startDate").value;
+if($("endDate").value && $("endDate").value<$("startDate").value)
+$("endDate").value="";
 });
 
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  if (!form.reportValidity()) return;
-
-  const d = new FormData(form);
-  const text = `MADURAI CHANDRU TRAVELS - TOUR BOOKING ENQUIRY
-
-Name: ${d.get("name")}
-Phone: ${d.get("phone")}
-Vehicle: ${d.get("vehicle")}
-Tour Package: ${d.get("package")}
-Passengers: ${d.get("passengers")}
-Pickup: ${d.get("pickup")}
-Destination / Route: ${d.get("destination")}
-Start Date: ${d.get("startDate")}
-Return Date: ${d.get("endDate") || "Not specified"}
-Trip Type: ${d.get("tripType")}
-Additional Requirements: ${d.get("message") || "None"}
-
-Please confirm availability, itinerary and package price.`;
-
-  const url = "https://wa.me/919087137006?text=" +
-    encodeURIComponent(text);
-
-  window.open(url, "_blank");
+$("endDate").addEventListener("change",()=>{
+if($("startDate").value && $("endDate").value &&
+$("endDate").value<$("startDate").value){
+$("endDate").setCustomValidity("Return date must be on or after the journey date.");
+}else{
+$("endDate").setCustomValidity("");
+const a=new Date($("startDate").value+"T00:00:00");
+const b=new Date($("endDate").value+"T00:00:00");
+if($("startDate").value && $("endDate").value)
+$("days").value=Math.max(1,Math.round((b-a)/86400000)+1);
+}
+calculateFare();
 });
+
+form.addEventListener("submit",e=>{
+e.preventDefault();
+if(!form.reportValidity())return;
+
+const f=calculateFare();
+const t=TOURS[$("tour").value];
+
+const message=[
+"*MADURAI CHANDRU TRAVELS - BOOKING REQUEST*",
+"",
+"*Name:* "+$("name").value.trim(),
+"*Mobile:* "+$("phone").value.trim(),
+"*Pickup:* "+$("pickup").value.trim(),
+"*Destination:* "+$("drop").value.trim(),
+"*Journey Date:* "+$("startDate").value,
+"*Return Date:* "+($("endDate").value||"Not specified"),
+"*Passengers:* "+$("passengers").value,
+"*Vehicle:* "+f.v.name,
+"*Tour Package:* "+t.name,
+"*Tariff:* "+f.tariff,
+"*Estimated KM:* "+f.km,
+"*Duration:* "+f.days+" day(s)",
+"*Estimated Fare:* "+money(f.total),
+"*Additional Requirements:* "+($("notes").value.trim()||"None"),
+"",
+"Please confirm availability, route distance, inclusions and final fare."
+].join("\n");
+
+// Correct WhatsApp international format: India country code +91
+const url="https://wa.me/919087137006?text="+encodeURIComponent(message);
+window.open(url,"_blank");
+});
+
+updateTour();
 </script>
 </body>
 </html>
