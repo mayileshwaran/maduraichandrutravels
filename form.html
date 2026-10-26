@@ -1,543 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Ride | Madurai Chandru Travels</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Trip | Madurai Chandru Travels</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #123b65;
-            --accent: #f5b400;
-            --background: #f4f7fb;
-            --text: #202b38;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .header {
-            text-align: center;
-            padding: 28px 15px 20px;
-            background: white;
-        }
-
-        .header img {
-            width: 100px;
-            max-height: 75px;
-            object-fit: contain;
-            margin-bottom: 8px;
-        }
-
-        .header h1 {
-            color: var(--primary);
-            font-size: 27px;
-        }
-
-        .header p {
-            color: #667085;
-            font-size: 14px;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 28px auto;
-            padding: 0 16px 35px;
-        }
-
-        .form-card {
-            background: white;
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
-        }
-
-        .section-title {
-            font-size: 21px;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        .section-description {
-            color: #667085;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .vehicle-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-bottom: 30px;
-        }
-
-        .vehicle-option {
-            display: block;
-            cursor: pointer;
-            border: 2px solid #e4e9f0;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.2s ease;
-            background: white;
-        }
-
-        .vehicle-option:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .vehicle-option input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .vehicle-option:has(input:checked) {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(18, 59, 101, 0.12);
-        }
-
-        .vehicle-option img {
-            width: 100%;
-            height: 165px;
-            object-fit: cover;
-            display: block;
-            background: #e9eef5;
-        }
-
-        .vehicle-info {
-            padding: 13px;
-        }
-
-        .vehicle-info h3 {
-            font-size: 17px;
-            color: var(--primary);
-        }
-
-        .vehicle-info p {
-            font-size: 13px;
-            color: #667085;
-            margin-top: 3px;
-        }
-
-        .vehicle-select {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .vehicle-select input {
-            position: static;
-            opacity: 1;
-            pointer-events: auto;
-            accent-color: var(--primary);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .field.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #344054;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 13px;
-            border: 1px solid #d0d5dd;
-            border-radius: 8px;
-            font: inherit;
-            font-size: 14px;
-            background: white;
-            outline: none;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(18, 59, 101, 0.1);
-        }
-
-        textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            border: none;
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            border-radius: 9px;
-            margin-top: 24px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: #0b2948;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 0 15px 25px;
-            font-size: 13px;
-            color: #667085;
-        }
-
-        .footer a {
-            color: var(--primary);
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        @media (max-width: 700px) {
-            .vehicle-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .vehicle-option {
-                display: grid;
-                grid-template-columns: 42% 1fr;
-                align-items: center;
-            }
-
-            .vehicle-option img {
-                height: 100%;
-                min-height: 145px;
-            }
-
-            .form-card {
-                padding: 20px 15px;
-            }
-
-            .header h1 {
-                font-size: 23px;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .field.full {
-                grid-column: auto;
-            }
-
-            .vehicle-option {
-                grid-template-columns: 38% 1fr;
-            }
-
-            .vehicle-info {
-                padding: 10px;
-            }
-
-            .vehicle-info h3 {
-                font-size: 15px;
-            }
-        }
-    </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#123b65;--gold:#f5b400;--bg:#f4f7fb}
+body{font-family:Arial,sans-serif;background:var(--bg);color:#202b38;line-height:1.6}
+.header{text-align:center;background:#fff;padding:25px 15px}
+.header img{width:95px;max-height:70px;object-fit:contain}
+.header h1{color:var(--blue);font-size:26px}
+.header p,.muted{color:#667085;font-size:14px}
+.container{max-width:1100px;margin:25px auto;padding:0 15px 35px}
+.card{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 25px #0000000a;margin-bottom:22px}
+h2{font-size:21px;color:var(--blue);margin-bottom:5px}
+.section-intro{font-size:14px;color:#667085;margin-bottom:20px}
+.vehicle-grid,.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.choice{border:2px solid #e0e6ee;border-radius:12px;overflow:hidden;cursor:pointer;background:#fff;transition:.2s}
+.choice:has(input:checked){border-color:var(--blue);box-shadow:0 0 0 2px #123b6518}
+.choice input{accent-color:var(--blue)}
+.choice img{width:100%;height:155px;object-fit:cover;display:block;background:#e9eef5}
+.choice-content{padding:13px}
+.choice h3{font-size:16px;color:var(--blue)}
+.choice p{font-size:13px;color:#667085;margin:3px 0 9px}
+.pick{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:bold}
+.pick input{width:auto}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.full{grid-column:1/-1}
+label{font-size:14px;font-weight:bold;color:#344054}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d0d5dd;border-radius:8px;font:inherit;font-size:14px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid #c3d6eb;border-color:var(--blue)}
+textarea{min-height:85px;resize:vertical}
+.divider{border:0;border-top:1px solid #e7ebf0;margin:25px 0}
+.btn{width:100%;padding:15px;background:var(--blue);color:#fff;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:22px}
+.btn:hover{background:#0b2948}
+.footer{text-align:center;color:#667085;font-size:13px;padding:0 15px 25px}
+.footer a{color:var(--blue);font-weight:bold;text-decoration:none}
+@media(max-width:750px){.vehicle-grid,.package-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){
+ .vehicle-grid,.package-grid,.form-grid{grid-template-columns:1fr}
+ .full{grid-column:auto}
+ .card{padding:18px 14px}
+ .choice{display:grid;grid-template-columns:38% 1fr;align-items:center}
+ .choice img{height:100%;min-height:130px}
+ .header h1{font-size:22px}
+}
+</style>
 </head>
-
 <body>
 
-    <header class="header">
-        <!-- Change the filename to your actual logo -->
-        <img src="./img/logo.png" alt="Madurai Chandru Travels Logo"
-             onerror="this.style.display='none'">
+<header class="header">
+  <img src="./img/logo.png" alt="Madurai Chandru Travels Logo"
+       onerror="this.style.display='none'">
+  <h1>Madurai Chandru Travels</h1>
+  <p>Travel planned with care, delivered with trust.</p>
+</header>
 
-        <h1>Madurai Chandru Travels</h1>
-        <p>Travel planned with care, delivered with trust.</p>
-    </header>
+<main class="container">
+<form id="bookingForm">
 
-    <main class="container">
-        <div class="form-card">
+<section class="card">
+  <h2>Choose Your Vehicle</h2>
+  <p class="section-intro">Select a vehicle for your trip.</p>
 
-            <h2 class="section-title">Book Your Ride</h2>
-            <p class="section-description">
-                Choose your vehicle and share your trip details.
-                We will contact you to confirm your booking.
-            </p>
+  <div class="vehicle-grid">
+    <label class="choice">
+      <img src="./img/innova.jpg" alt="Innova"
+           onerror="this.onerror=null;this.src='./img/innova.png'">
+      <div class="choice-content">
+        <h3>Innova</h3>
+        <p>Comfortable family travel</p>
+        <div class="pick"><input type="radio" name="vehicle" value="Innova" required> Select Innova</div>
+      </div>
+    </label>
 
-            <form id="bookingForm">
+    <label class="choice">
+      <img src="./img/crysta.jpg" alt="Innova Crysta"
+           onerror="this.onerror=null;this.src='./img/crysta.png'">
+      <div class="choice-content">
+        <h3>Innova Crysta</h3>
+        <p>Premium comfort</p>
+        <div class="pick"><input type="radio" name="vehicle" value="Innova Crysta" required> Select Crysta</div>
+      </div>
+    </label>
 
-                <h3 class="section-title">Choose Your Vehicle</h3>
-                <p class="section-description">
-                    Select the vehicle that suits your journey.
-                </p>
+    <label class="choice">
+      <img src="./img/tempo.jpg" alt="Tempo Traveller"
+           onerror="this.onerror=null;this.src='./img/tempo.png'">
+      <div class="choice-content">
+        <h3>Tempo Traveller</h3>
+        <p>Group and family tours</p>
+        <div class="pick"><input type="radio" name="vehicle" value="Tempo Traveller" required> Select Tempo</div>
+      </div>
+    </label>
+  </div>
+</section>
 
-                <div class="vehicle-grid">
+<section class="card">
+  <h2>Explore Tour Packages</h2>
+  <p class="section-intro">Select a destination or choose a custom trip. Final price and itinerary will be confirmed with you.</p>
 
-                    <label class="vehicle-option">
-                        <input type="radio" name="vehicle"
-                               value="Innova" required>
+  <div class="package-grid">
+    <label class="choice">
+      <img src="./img/madurai.jpg" alt="Madurai tour"
+           onerror="this.onerror=null;this.src='./img/madurai.png'">
+      <div class="choice-content">
+        <h3>Madurai Local Tour</h3>
+        <p>Meenakshi Amman Temple and local attractions</p>
+        <div class="pick"><input type="radio" name="package" value="Madurai Local Tour" required> Select package</div>
+      </div>
+    </label>
 
-                        <img src="./img/innova.jpg"
-                             alt="Toyota Innova"
-                             onerror="this.onerror=null;this.src='./img/innova.png'">
+    <label class="choice">
+      <img src="./img/rameswaram.jpg" alt="Rameswaram tour"
+           onerror="this.onerror=null;this.src='./img/rameswaram.png'">
+      <div class="choice-content">
+        <h3>Rameswaram</h3>
+        <p>Ramanathaswamy Temple and Pamban Bridge</p>
+        <div class="pick"><input type="radio" name="package" value="Rameswaram Tour" required> Select package</div>
+      </div>
+    </label>
 
-                        <div class="vehicle-info">
-                            <h3>Innova</h3>
-                            <p>Comfortable family and outstation trips.</p>
-                            <div class="vehicle-select">
-                                <input type="radio" name="vehicle-choice-1"
-                                       tabindex="-1" aria-hidden="true"
-                                       onclick="return false">
-                                Select Innova
-                            </div>
-                        </div>
-                    </label>
+    <label class="choice">
+      <img src="./img/kanyakumari.jpg" alt="Kanyakumari tour"
+           onerror="this.onerror=null;this.src='./img/kanyakumari.png'">
+      <div class="choice-content">
+        <h3>Kanyakumari</h3>
+        <p>Vivekananda Rock Memorial and coastal views</p>
+        <div class="pick"><input type="radio" name="package" value="Kanyakumari Tour" required> Select package</div>
+      </div>
+    </label>
 
-                    <label class="vehicle-option">
-                        <input type="radio" name="vehicle"
-                               value="Innova Crysta" required>
+    <label class="choice">
+      <img src="./img/kodaikanal.jpg" alt="Kodaikanal tour"
+           onerror="this.onerror=null;this.src='./img/kodaikanal.png'">
+      <div class="choice-content">
+        <h3>Kodaikanal</h3>
+        <p>Lake, hills and scenic viewpoints</p>
+        <div class="pick"><input type="radio" name="package" value="Kodaikanal Tour" required> Select package</div>
+      </div>
+    </label>
 
-                        <img src="./img/crysta.jpg"
-                             alt="Toyota Innova Crysta"
-                             onerror="this.onerror=null;this.src='./img/crysta.png'">
+    <label class="choice">
+      <img src="./img/ooty.jpg" alt="Ooty tour"
+           onerror="this.onerror=null;this.src='./img/ooty.png'">
+      <div class="choice-content">
+        <h3>Ooty</h3>
+        <p>Mountain scenery and botanical gardens</p>
+        <div class="pick"><input type="radio" name="package" value="Ooty Tour" required> Select package</div>
+      </div>
+    </label>
 
-                        <div class="vehicle-info">
-                            <h3>Innova Crysta</h3>
-                            <p>Premium comfort for family travel.</p>
-                            <div class="vehicle-select">
-                                <span>◉</span> Select Crysta
-                            </div>
-                        </div>
-                    </label>
+    <label class="choice">
+      <img src="./img/kerala.jpg" alt="Kerala tour"
+           onerror="this.onerror=null;this.src='./img/kerala.png'">
+      <div class="choice-content">
+        <h3>Kerala</h3>
+        <p>Green landscapes and backwater destinations</p>
+        <div class="pick"><input type="radio" name="package" value="Kerala Tour" required> Select package</div>
+      </div>
+    </label>
 
-                    <label class="vehicle-option">
-                        <input type="radio" name="vehicle"
-                               value="Tempo Traveller" required>
+    <label class="choice">
+      <img src="./img/tirupati.jpg" alt="Tirupati tour"
+           onerror="this.onerror=null;this.src='./img/tirupati.png'">
+      <div class="choice-content">
+        <h3>Tirupati</h3>
+        <p>Temple pilgrimage trip</p>
+        <div class="pick"><input type="radio" name="package" value="Tirupati Tour" required> Select package</div>
+      </div>
+    </label>
 
-                        <img src="./img/tempo.jpg"
-                             alt="Tempo Traveller"
-                             onerror="this.onerror=null;this.src='./img/tempo.png'">
+    <label class="choice">
+      <img src="./img/custom-tour.jpg" alt="Custom tour"
+           onerror="this.onerror=null;this.src='./img/custom-tour.png'">
+      <div class="choice-content">
+        <h3>Custom Tour</h3>
+        <p>Plan your own destination and stops</p>
+        <div class="pick"><input type="radio" name="package" value="Custom Tour" required> Select package</div>
+      </div>
+    </label>
+  </div>
+</section>
 
-                        <div class="vehicle-info">
-                            <h3>Tempo Traveller</h3>
-                            <p>Spacious travel for groups and tours.</p>
-                            <div class="vehicle-select">
-                                <span>◉</span> Select Tempo
-                            </div>
-                        </div>
-                    </label>
+<section class="card">
+  <h2>Your Booking Details</h2>
+  <p class="section-intro">Fill in your trip information to send an enquiry.</p>
 
-                </div>
+  <div class="form-grid">
+    <div class="field">
+      <label for="name">Full Name *</label>
+      <input id="name" name="name" required placeholder="Enter your name">
+    </div>
 
-                <h3 class="section-title">Trip Details</h3>
-                <p class="section-description">
-                    Enter your contact and travel information.
-                </p>
+    <div class="field">
+      <label for="phone">Mobile Number *</label>
+      <input id="phone" name="phone" type="tel" required
+             pattern="[6-9][0-9]{9}" maxlength="10"
+             placeholder="10-digit mobile number">
+    </div>
 
-                <div class="form-grid">
+    <div class="field">
+      <label for="pickup">Pickup Location *</label>
+      <input id="pickup" name="pickup" required placeholder="Pickup location">
+    </div>
 
-                    <div class="field">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name"
-                               placeholder="Enter your name" required>
-                    </div>
+    <div class="field">
+      <label for="destination">Destination / Route *</label>
+      <input id="destination" name="destination" required
+             placeholder="Enter destination or route">
+    </div>
 
-                    <div class="field">
-                        <label for="phone">Mobile Number *</label>
-                        <input type="tel" id="phone" name="phone"
-                               placeholder="10-digit mobile number"
-                               pattern="[6-9][0-9]{9}" maxlength="10" required>
-                    </div>
+    <div class="field">
+      <label for="startDate">Travel Start Date *</label>
+      <input id="startDate" name="startDate" type="date" required>
+    </div>
 
-                    <div class="field">
-                        <label for="pickup">Pickup Location *</label>
-                        <input type="text" id="pickup" name="pickup"
-                               placeholder="e.g. Madurai Railway Station"
-                               required>
-                    </div>
+    <div class="field">
+      <label for="endDate">Return Date</label>
+      <input id="endDate" name="endDate" type="date">
+    </div>
 
-                    <div class="field">
-                        <label for="destination">Destination *</label>
-                        <input type="text" id="destination" name="destination"
-                               placeholder="Where do you want to go?" required>
-                    </div>
+    <div class="field">
+      <label for="passengers">Number of Passengers *</label>
+      <select id="passengers" name="passengers" required>
+        <option value="">Select passengers</option>
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option><option>6</option>
+        <option>7</option><option>8</option><option>9</option>
+        <option>10</option><option>11</option><option>12</option>
+        <option>13</option><option>14</option><option>15</option>
+        <option>16</option><option>17</option><option>18</option>
+        <option>19</option><option>20</option><option>21</option>
+        <option>22</option><option>23</option><option>24</option>
+        <option>25</option><option>26</option><option>27</option>
+        <option>28</option><option>29</option><option>30</option>
+      </select>
+    </div>
 
-                    <div class="field">
-                        <label for="startDate">Trip Start Date *</label>
-                        <input type="date" id="startDate" name="startDate"
-                               required>
-                    </div>
+    <div class="field">
+      <label for="tripType">Trip Type *</label>
+      <select id="tripType" name="tripType" required>
+        <option value="">Select trip type</option>
+        <option>One Way</option>
+        <option>Round Trip</option>
+        <option>Multi-Day Tour</option>
+        <option>Local Sightseeing</option>
+        <option>Temple Tour</option>
+        <option>Airport Pickup / Drop</option>
+        <option>Wedding / Function</option>
+      </select>
+    </div>
 
-                    <div class="field">
-                        <label for="endDate">Return Date</label>
-                        <input type="date" id="endDate" name="endDate">
-                    </div>
+    <div class="field full">
+      <label for="message">Additional Requirements</label>
+      <textarea id="message" name="message"
+        placeholder="Preferred stops, timings, itinerary or other requirements"></textarea>
+    </div>
+  </div>
 
-                    <div class="field">
-                        <label for="passengers">Number of Passengers *</label>
-                        <select id="passengers" name="passengers" required>
-                            <option value="">Select passengers</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                        </select>
-                    </div>
+  <button class="btn" type="submit">Send Booking Enquiry on WhatsApp</button>
+</section>
+</form>
+</main>
 
-                    <div class="field">
-                        <label for="tripType">Trip Type *</label>
-                        <select id="tripType" name="tripType" required>
-                            <option value="">Select trip type</option>
-                            <option>Local Trip</option>
-                            <option>Outstation Trip</option>
-                            <option>Airport Pickup / Drop</option>
-                            <option>Temple Tour</option>
-                            <option>Wedding / Function</option>
-                        </select>
-                    </div>
+<footer class="footer">
+  <p>Need assistance? <a href="tel:+919087137006">+91 90871 37006</a></p>
+  <p>© <span id="year"></span> Madurai Chandru Travels</p>
+</footer>
 
-                    <div class="field full">
-                        <label for="message">Additional Requirements</label>
-                        <textarea id="message" name="message"
-                                  placeholder="Tell us about stops, timing, or other requirements"></textarea>
-                    </div>
+<script>
+const form = document.getElementById("bookingForm");
+const start = document.getElementById("startDate");
+const end = document.getElementById("endDate");
 
-                </div>
+document.getElementById("year").textContent = new Date().getFullYear();
 
-                <button type="submit" class="submit-btn">
-                    Send Booking Enquiry on WhatsApp
-                </button>
+const now = new Date();
+const today = [
+  now.getFullYear(),
+  String(now.getMonth() + 1).padStart(2, "0"),
+  String(now.getDate()).padStart(2, "0")
+].join("-");
 
-            </form>
-        </div>
-    </main>
+start.min = today;
+end.min = today;
 
-    <footer class="footer">
-        <p>Need assistance?
-            <a href="tel:+919087137006">Call +91 90871 37006</a>
-        </p>
-        <p>© <span id="year"></span> Madurai Chandru Travels</p>
-    </footer>
+start.addEventListener("change", () => {
+  end.min = start.value || today;
+  if (end.value && end.value < start.value) end.value = "";
+});
 
-    <script>
-        const bookingForm = document.getElementById("bookingForm");
-        const startDate = document.getElementById("startDate");
-        const endDate = document.getElementById("endDate");
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
 
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+  const d = new FormData(form);
+  const text = `MADURAI CHANDRU TRAVELS - TOUR BOOKING ENQUIRY
 
-        // Prevent selecting a past trip date.
-        const today = new Date();
-        const localToday = [
-            today.getFullYear(),
-            String(today.getMonth() + 1).padStart(2, "0"),
-            String(today.getDate()).padStart(2, "0")
-        ].join("-");
+Name: ${d.get("name")}
+Phone: ${d.get("phone")}
+Vehicle: ${d.get("vehicle")}
+Tour Package: ${d.get("package")}
+Passengers: ${d.get("passengers")}
+Pickup: ${d.get("pickup")}
+Destination / Route: ${d.get("destination")}
+Start Date: ${d.get("startDate")}
+Return Date: ${d.get("endDate") || "Not specified"}
+Trip Type: ${d.get("tripType")}
+Additional Requirements: ${d.get("message") || "None"}
 
-        startDate.min = localToday;
-        endDate.min = localToday;
+Please confirm availability, itinerary and package price.`;
 
-        startDate.addEventListener("change", function () {
-            endDate.min = this.value || localToday;
+  const url = "https://wa.me/919087137006?text=" +
+    encodeURIComponent(text);
 
-            if (endDate.value && endDate.value < this.value) {
-                endDate.value = "";
-            }
-        });
-
-        bookingForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            if (!bookingForm.reportValidity()) return;
-
-            const data = new FormData(bookingForm);
-
-            const vehicle = data.get("vehicle");
-            const name = data.get("name").trim();
-            const phone = data.get("phone").trim();
-            const pickup = data.get("pickup").trim();
-            const destination = data.get("destination").trim();
-            const passengers = data.get("passengers");
-            const tripType = data.get("tripType");
-            const start = data.get("startDate");
-            const end = data.get("endDate") || "Not specified";
-            const message = data.get("message").trim() || "None";
-
-            const bookingMessage =
-`MADURAI CHANDRU TRAVELS - BOOKING ENQUIRY
-
-Name: ${name}
-Mobile: ${phone}
-Vehicle: ${vehicle}
-Passengers: ${passengers}
-Pickup: ${pickup}
-Destination: ${destination}
-Start Date: ${start}
-Return Date: ${end}
-Trip Type: ${tripType}
-Additional Requirements: ${message}
-
-Please contact me regarding availability and pricing.`;
-
-            const whatsappURL =
-                "https://wa.me/919087137006?text=" +
-                encodeURIComponent(bookingMessage);
-
-            window.open(whatsappURL, "_blank");
-        });
-    </script>
-
+  window.open(url, "_blank");
+});
+</script>
 </body>
 </html>
